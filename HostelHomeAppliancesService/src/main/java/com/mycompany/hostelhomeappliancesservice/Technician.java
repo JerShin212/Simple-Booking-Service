@@ -51,6 +51,7 @@ public class Technician extends User {
         System.out.println("User ID: " + userID);
         System.out.println("Name: " + name);
         System.out.println("Email: " + email);
+        System.out.println("Specialization: " + specialization);
     }
 
     public String toString() {
