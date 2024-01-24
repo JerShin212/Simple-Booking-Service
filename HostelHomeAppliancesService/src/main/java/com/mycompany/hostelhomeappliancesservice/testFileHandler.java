@@ -1,10 +1,12 @@
 package com.mycompany.hostelhomeappliancesservice;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class testFileHandler {
     public static void main(String[] args) {
         String testFilePath = "testCSVFile.txt";
+        FileHandler FileHandler = new FileHandler();
 
         // Test file creation
         System.out.println(FileHandler.createFile(testFilePath));

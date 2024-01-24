@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class FileHandler {
 
-    public static String createFile(String filePath) {
+    public String createFile(String filePath) {
         try {
             File file = new File(filePath);
             if (file.createNewFile()) {
@@ -22,12 +22,12 @@ public class FileHandler {
         }
     }
 
-    public static boolean checkFileExistence(String filePath) {
+    public boolean checkFileExistence(String filePath) {
         File file = new File(filePath);
         return file.exists();
     }
 
-    public static List<String> readFile(String filePath) {
+    public List<String> readFile(String filePath) {
         if (!checkFileExistence(filePath)) {
             createFile(filePath);
         }
@@ -43,7 +43,7 @@ public class FileHandler {
         return lines;
     }
 
-    public static String writeFile(String filePath, List<String> dataLines) {
+    public String writeFile(String filePath, List<String> dataLines) {
         if (!checkFileExistence(filePath)) {
             createFile(filePath);
         }
@@ -57,7 +57,7 @@ public class FileHandler {
         }
     }
 
-    public static String appendFile(String filePath, String data) {
+    public String appendFile(String filePath, String data) {
         if (!checkFileExistence(filePath)) {
             createFile(filePath);
         }
@@ -69,7 +69,7 @@ public class FileHandler {
         }
     }
 
-    public static String updateFile(String filePath, String oldData, String newData) {
+    public String updateFile(String filePath, String oldData, String newData) {
         if (!checkFileExistence(filePath)) {
             createFile(filePath);
         }
