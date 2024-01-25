@@ -48,7 +48,7 @@ public class Appointment {
             return "Invalid date. Please choose a future date.";
         }
         
-        String newLine = this.appointmentID + "," + this.customerID + "," + this.technicianID + "," + this.serviceID + "," + this.date + this.status;
+        String newLine = this.appointmentID + "," + this.customerID + "," + this.technicianID + "," + this.serviceID + "," + this.date + "," + this.status;
         String writeResult = fileHandler.appendFile(fileAppointment, newLine);
         if (!writeResult.equals("Success")) {
             return writeResult;
@@ -184,5 +184,9 @@ public class Appointment {
 
     public String getCustomerID() {
         return this.customerID;
+    }
+
+    public String toString() {
+        return this.appointmentID + "," + this.customerID + "," + this.technicianID + "," + this.serviceID + "," + this.date + "," + this.status;
     }
 }

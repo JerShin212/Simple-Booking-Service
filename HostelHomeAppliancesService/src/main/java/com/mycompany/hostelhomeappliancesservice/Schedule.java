@@ -29,12 +29,12 @@ public class Schedule {
                 loadAppointments.add(appointment);
             }
         }
-        return loadAppointments;
+        return this.appointments = loadAppointments;
     }
 
     private boolean checkAvailability(LocalDateTime dateTime) {
         for (Appointment existingAppointment : appointments) {
-            if (existingAppointment.getDate().equals(dateTime.toString()) && existingAppointment.getTechnicianID().equals(this.technicianID)) {
+            if (existingAppointment.getDate().equals(dateTime.toString())) {
                 return false;
             }
         }
@@ -47,7 +47,7 @@ public class Schedule {
             String line = String.join(",", appointment.getAppointmentID(), appointment.getCustomerID(), appointment.getTechnicianID(), appointment.getServiceID(), appointment.getDate(), appointment.getStatus());
             lines.add(line);
         }
-        fileHandler.writeFile("appointment.txt", lines);
+        fileHandler.writeFile("schedule.txt", lines);
     }
 
     public void addAppointment(Appointment appointment) {
@@ -95,5 +95,11 @@ public class Schedule {
         return this.appointments;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                ", technicianID='" + technicianID + '\'' +
+                ", appointments=" + appointments +
+                '}';
+    }
 }
