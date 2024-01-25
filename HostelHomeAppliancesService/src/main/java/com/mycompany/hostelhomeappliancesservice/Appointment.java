@@ -19,23 +19,21 @@ public class Appointment {
         this.date = date;
         this.status = status;
     }
-
-    public String schedule(String customerID, String technicianID, String serviceID, LocalDateTime date) {
+    
+    public String schedule() {
         String fileAppointment = "appointment.txt";
         String fileUser = "users.txt";
         List<String> linesUser = fileHandler.readFile(fileUser);
-        List<String> linesAppointment = fileHandler.readFile(fileAppointment);
-        int appointmentID = Integer.parseInt(linesAppointment.get(linesAppointment.size() - 1).split(",")[0]) + 1;
 
         // Validate if customerID and technicianID are in users.txt
         boolean isCustomerValid = false;
         boolean isTechnicianValid = false;
         for (String line : linesUser) {
             String[] user = line.split(",");
-            if (user[5].equals(customerID)) {
+            if (user[5].equals(this.customerID)) {
                 isCustomerValid = true;
             }
-            if (user[5].equals(technicianID)) {
+            if (user[5].equals(this.technicianID)) {
                 isTechnicianValid = true;
             }
         }
@@ -46,11 +44,11 @@ public class Appointment {
         
         // Ensure date is not in the past
         LocalDateTime currentDateTime = LocalDateTime.now();
-        if (date == null || date.isBefore(currentDateTime)) {
+        if (date == null || this.date.isBefore(currentDateTime)) {
             return "Invalid date. Please choose a future date.";
         }
         
-        String newLine = appointmentID + "," + customerID + "," + technicianID + "," + serviceID + "," + date + ",scheduled";
+        String newLine = this.appointmentID + "," + this.customerID + "," + this.technicianID + "," + this.serviceID + "," + this.date + this.status;
         String writeResult = fileHandler.appendFile(fileAppointment, newLine);
         if (!writeResult.equals("Success")) {
             return writeResult;
@@ -164,4 +162,27 @@ public class Appointment {
         return "Invalid appointmentID.";
     }
 
+    public String getDate() {
+        return this.date.toString();
+    }
+
+    public String getAppointmentID() {
+        return this.appointmentID;
+    }
+
+    public String getTechnicianID() {
+        return this.technicianID;
+    }
+
+    public String getServiceID() {
+        return this.serviceID;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getCustomerID() {
+        return this.customerID;
+    }
 }
