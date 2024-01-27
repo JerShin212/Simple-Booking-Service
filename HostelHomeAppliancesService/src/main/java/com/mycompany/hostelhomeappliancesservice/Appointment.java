@@ -162,6 +162,12 @@ public class Appointment {
         return "Invalid appointmentID.";
     }
 
+    public Service getService() {
+        Service service = new Service(this.serviceID);
+        service.retrieveService();
+        return service;
+    }
+
     public String getDate() {
         return this.date.toString();
     }

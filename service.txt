@@ -1,0 +1,10 @@
+sv006,Deep Cleaning,60,80
+sv007,Quick Diagnostic,20,40
+sv008,Software Update,30,60
+sv009,Emergency Response,45,120
+sv010,Heating System Repair,75,110
+sv011,Air Conditioning Tune-up,60,90
+sv012,Plumbing Services,90,130
+sv013,Electrical Wiring Check,50,100
+sv014,Smart Home Setup,120,200
+sv015,Washer/Dryer Repair,45,85
