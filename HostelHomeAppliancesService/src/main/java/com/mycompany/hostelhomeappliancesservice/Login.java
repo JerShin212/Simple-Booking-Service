@@ -232,7 +232,7 @@ public class Login extends javax.swing.JFrame {
 
         String pass = String.valueOf(tfPassword.getPassword());
 
-        if(pass.trim().toLowerCase().equals("password")){
+        if(pass.trim().equalsIgnoreCase("password")){
             tfPassword.setText("");
             tfPassword.setForeground(Color.black);
         }
