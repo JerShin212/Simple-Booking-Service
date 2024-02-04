@@ -1,4 +1,4 @@
-package HostelHomeApplianceService;
+package SecondVer;
 
 import java.util.ArrayList;
 public class Customer extends User{

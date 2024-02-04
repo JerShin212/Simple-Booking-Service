@@ -1,4 +1,4 @@
-package HostelHomeApplianceService;
+package SecondVer;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Date;

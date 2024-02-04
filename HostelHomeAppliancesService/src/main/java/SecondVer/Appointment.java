@@ -1,4 +1,4 @@
-package HostelHomeApplianceService;
+package SecondVer;
 
 public class Appointment {
     private String username;

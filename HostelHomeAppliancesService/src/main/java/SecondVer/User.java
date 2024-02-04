@@ -1,4 +1,4 @@
-package HostelHomeApplianceService;
+package SecondVer;
 
 public class User {
     private String username;
