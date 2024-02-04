@@ -37,6 +37,8 @@ public class Dashboard extends javax.swing.JFrame {
         btnAppointment = new javax.swing.JButton();
         btnSchedule = new javax.swing.JButton();
         btnSpecialization = new javax.swing.JButton();
+        lbLogo = new javax.swing.JLabel();
+        btnSetting = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,11 +50,11 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 354, Short.MAX_VALUE)
+            .addGap(0, 356, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 251, Short.MAX_VALUE)
+            .addGap(0, 269, Short.MAX_VALUE)
         );
 
         btnHome.setBackground(new java.awt.Color(204, 204, 204));
@@ -68,6 +70,9 @@ public class Dashboard extends javax.swing.JFrame {
         btnAppointment.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnAppointment.setForeground(new java.awt.Color(255, 255, 255));
         btnAppointment.setText("Appointment");
+        btnAppointment.setOpaque(false);
+        btnAppointment.setContentAreaFilled(false);
+        btnAppointment.setBorderPainted(false);
         btnAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAppointmentActionPerformed(evt);
@@ -78,6 +83,9 @@ public class Dashboard extends javax.swing.JFrame {
         btnSchedule.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnSchedule.setForeground(new java.awt.Color(255, 255, 255));
         btnSchedule.setText("Schedule");
+        btnSchedule.setOpaque(false);
+        btnSchedule.setContentAreaFilled(false);
+        btnSchedule.setBorderPainted(false);
         btnSchedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnScheduleActionPerformed(evt);
@@ -88,9 +96,24 @@ public class Dashboard extends javax.swing.JFrame {
         btnSpecialization.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnSpecialization.setForeground(new java.awt.Color(255, 255, 255));
         btnSpecialization.setText("Specialization");
+        btnSpecialization.setOpaque(false);
+        btnSpecialization.setContentAreaFilled(false);
+        btnSpecialization.setBorderPainted(false);
         btnSpecialization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSpecializationActionPerformed(evt);
+            }
+        });
+        lbLogo.setText("Logo");
+
+        btnSetting.setBackground(new java.awt.Color(102, 102, 102));
+        btnSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/resized_setting.png"))); // NOI18N
+        btnSetting.setOpaque(false);
+        btnSetting.setContentAreaFilled(false);
+        btnSetting.setBorderPainted(false);
+        btnSetting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingActionPerformed(evt);
             }
         });
 
@@ -99,38 +122,45 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(lbLogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSpecialization)))
-                .addGap(18, 18, 18))
+                        .addComponent(btnSpecialization)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSetting))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnHome)
-                    .addComponent(btnAppointment)
-                    .addComponent(btnSchedule)
-                    .addComponent(btnSpecialization))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnHome)
+                        .addComponent(btnAppointment)
+                        .addComponent(btnSchedule)
+                        .addComponent(btnSpecialization)
+                        .addComponent(lbLogo))
+                    .addComponent(btnSetting))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,6 +191,13 @@ public class Dashboard extends javax.swing.JFrame {
         c.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnSpecializationActionPerformed
+
+    private void btnSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingActionPerformed
+        Setting d = new Setting();
+        d.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSettingActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -201,8 +238,10 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnSchedule;
+    private javax.swing.JButton btnSetting;
     private javax.swing.JButton btnSpecialization;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbLogo;
     // End of variables declaration//GEN-END:variables
 }

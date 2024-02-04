@@ -54,6 +54,9 @@ public class TechnicianSpecialization extends javax.swing.JFrame {
         btnHome.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
         btnHome.setText("Home");
+        btnHome.setOpaque(false);
+        btnHome.setContentAreaFilled(false);
+        btnHome.setBorderPainted(false);
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
@@ -64,6 +67,9 @@ public class TechnicianSpecialization extends javax.swing.JFrame {
         btnAppointment.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnAppointment.setForeground(new java.awt.Color(255, 255, 255));
         btnAppointment.setText("Appointment");
+        btnAppointment.setOpaque(false);
+        btnAppointment.setContentAreaFilled(false);
+        btnAppointment.setBorderPainted(false);
         btnAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAppointmentActionPerformed(evt);
@@ -74,6 +80,9 @@ public class TechnicianSpecialization extends javax.swing.JFrame {
         btnSchedule.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnSchedule.setForeground(new java.awt.Color(255, 255, 255));
         btnSchedule.setText("Schedule");
+        btnSchedule.setOpaque(false);
+        btnSchedule.setContentAreaFilled(false);
+        btnSchedule.setBorderPainted(false);
         btnSchedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnScheduleActionPerformed(evt);
