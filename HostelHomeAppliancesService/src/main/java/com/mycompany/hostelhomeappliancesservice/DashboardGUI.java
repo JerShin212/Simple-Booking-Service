@@ -12,12 +12,12 @@ import java.awt.event.WindowEvent;
  *
  * @author User
  */
-public class Dashboard extends javax.swing.JFrame {
+public class DashboardGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Dashboard
      */
-    public Dashboard() {
+    public DashboardGUI() {
         initComponents();
     }
     
@@ -31,34 +31,69 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
+        pnMain = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         btnHome = new javax.swing.JButton();
         btnAppointment = new javax.swing.JButton();
         btnSchedule = new javax.swing.JButton();
-        btnSpecialization = new javax.swing.JButton();
+        btnTechnician = new javax.swing.JButton();
         lbLogo = new javax.swing.JLabel();
         btnSetting = new javax.swing.JButton();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        pnMain.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(109, 123, 141));
+        jLabel1.setText("Quick Appointment");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(109, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout pnMainLayout = new javax.swing.GroupLayout(pnMain);
+        pnMain.setLayout(pnMainLayout);
+        pnMainLayout.setHorizontalGroup(
+            pnMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnMainLayout.setVerticalGroup(
+            pnMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnMainLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         btnHome.setBackground(new java.awt.Color(204, 204, 204));
-        btnHome.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        btnHome.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnHome.setText("Home");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,12 +102,9 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         btnAppointment.setBackground(new java.awt.Color(102, 102, 102));
-        btnAppointment.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        btnAppointment.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnAppointment.setForeground(new java.awt.Color(255, 255, 255));
         btnAppointment.setText("Appointment");
-        btnAppointment.setOpaque(false);
-        btnAppointment.setContentAreaFilled(false);
-        btnAppointment.setBorderPainted(false);
         btnAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAppointmentActionPerformed(evt);
@@ -80,37 +112,29 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         btnSchedule.setBackground(new java.awt.Color(102, 102, 102));
-        btnSchedule.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        btnSchedule.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnSchedule.setForeground(new java.awt.Color(255, 255, 255));
         btnSchedule.setText("Schedule");
-        btnSchedule.setOpaque(false);
-        btnSchedule.setContentAreaFilled(false);
-        btnSchedule.setBorderPainted(false);
         btnSchedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnScheduleActionPerformed(evt);
             }
         });
 
-        btnSpecialization.setBackground(new java.awt.Color(102, 102, 102));
-        btnSpecialization.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        btnSpecialization.setForeground(new java.awt.Color(255, 255, 255));
-        btnSpecialization.setText("Specialization");
-        btnSpecialization.setOpaque(false);
-        btnSpecialization.setContentAreaFilled(false);
-        btnSpecialization.setBorderPainted(false);
-        btnSpecialization.addActionListener(new java.awt.event.ActionListener() {
+        btnTechnician.setBackground(new java.awt.Color(102, 102, 102));
+        btnTechnician.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnTechnician.setForeground(new java.awt.Color(255, 255, 255));
+        btnTechnician.setText("Technician");
+        btnTechnician.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSpecializationActionPerformed(evt);
+                btnTechnicianActionPerformed(evt);
             }
         });
+
         lbLogo.setText("Logo");
 
         btnSetting.setBackground(new java.awt.Color(102, 102, 102));
         btnSetting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/resized_setting.png"))); // NOI18N
-        btnSetting.setOpaque(false);
-        btnSetting.setContentAreaFilled(false);
-        btnSetting.setBorderPainted(false);
         btnSetting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSettingActionPerformed(evt);
@@ -124,35 +148,38 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAppointment)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSpecialization)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSetting))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnTechnician))
+                    .addComponent(pnMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnHome)
-                        .addComponent(btnAppointment)
-                        .addComponent(btnSchedule)
-                        .addComponent(btnSpecialization)
-                        .addComponent(lbLogo))
-                    .addComponent(btnSetting))
+                    .addComponent(btnSetting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbLogo)
+                            .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnTechnician, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -160,25 +187,27 @@ public class Dashboard extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnHomeActionPerformed
-
-    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
-        ManagerAppointment a = new ManagerAppointment();
-        a.setVisible(true);
+    private void btnSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingActionPerformed
+        Setting d = new Setting();
+        d.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnAppointmentActionPerformed
+    }//GEN-LAST:event_btnSettingActionPerformed
+
+    private void btnTechnicianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTechnicianActionPerformed
+        TechnicianSpecialization c = new TechnicianSpecialization();
+        c.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnTechnicianActionPerformed
 
     private void btnScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleActionPerformed
         TechnicianSchedule b = new TechnicianSchedule();
@@ -186,17 +215,15 @@ public class Dashboard extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnScheduleActionPerformed
 
-    private void btnSpecializationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSpecializationActionPerformed
-        TechnicianSpecialization c = new TechnicianSpecialization();
-        c.setVisible(true);
+    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
+        ManagerAppointment a = new ManagerAppointment();
+        a.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnSpecializationActionPerformed
+    }//GEN-LAST:event_btnAppointmentActionPerformed
 
-    private void btnSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingActionPerformed
-        Setting d = new Setting();
-        d.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnSettingActionPerformed
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHomeActionPerformed
 
 
     /**
@@ -216,20 +243,21 @@ public class Dashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DashboardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DashboardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DashboardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DashboardGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new DashboardGUI().setVisible(true);
             }
         });
     }
@@ -239,9 +267,13 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnSetting;
-    private javax.swing.JButton btnSpecialization;
+    private javax.swing.JButton btnTechnician;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbLogo;
+    private javax.swing.JPanel pnMain;
     // End of variables declaration//GEN-END:variables
 }
