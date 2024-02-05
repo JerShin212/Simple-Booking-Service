@@ -144,7 +144,25 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbQuickAppointment" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbUsername" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbDate" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbTime" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbDescription" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tfUsername" min="-2" pref="250" max="-2" attributes="0"/>
+                                      <Component id="tfDate" min="-2" pref="250" max="-2" attributes="0"/>
+                                      <Component id="tfTime" min="-2" pref="250" max="-2" attributes="0"/>
+                                      <Component id="tfDescription" min="-2" pref="250" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -153,14 +171,34 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="27" max="-2" attributes="0"/>
-                          <EmptySpace pref="109" max="32767" attributes="0"/>
+                          <Component id="lbQuickAppointment" min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbUsername" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfUsername" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lbTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbDescription" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfDescription" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="15" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="lbQuickAppointment">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Baskerville Old Face" size="18" style="0"/>
@@ -169,6 +207,46 @@
                       <Color blue="8d" green="7b" red="6d" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Quick Appointment"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbUsername">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Username: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbDate">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Date: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbTime">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Time: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbDescription">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Description:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfUsername">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Username"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfDate">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Date"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfTime">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Time"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfDescription">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Description"/>
                   </Properties>
                 </Component>
               </SubComponents>

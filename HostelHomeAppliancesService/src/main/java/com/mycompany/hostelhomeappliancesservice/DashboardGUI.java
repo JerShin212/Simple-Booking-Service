@@ -36,7 +36,15 @@ public class DashboardGUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         pnMain = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lbQuickAppointment = new javax.swing.JLabel();
+        lbUsername = new javax.swing.JLabel();
+        lbDate = new javax.swing.JLabel();
+        lbTime = new javax.swing.JLabel();
+        lbDescription = new javax.swing.JLabel();
+        tfUsername = new javax.swing.JTextField();
+        tfDate = new javax.swing.JTextField();
+        tfTime = new javax.swing.JTextField();
+        tfDescription = new javax.swing.JTextField();
         btnHome = new javax.swing.JButton();
         btnAppointment = new javax.swing.JButton();
         btnSchedule = new javax.swing.JButton();
@@ -54,9 +62,25 @@ public class DashboardGUI extends javax.swing.JFrame {
 
         pnMain.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(109, 123, 141));
-        jLabel1.setText("Quick Appointment");
+        lbQuickAppointment.setFont(new java.awt.Font("Baskerville Old Face", 0, 18)); // NOI18N
+        lbQuickAppointment.setForeground(new java.awt.Color(109, 123, 141));
+        lbQuickAppointment.setText("Quick Appointment");
+
+        lbUsername.setText("Username: ");
+
+        lbDate.setText("Date: ");
+
+        lbTime.setText("Time: ");
+
+        lbDescription.setText("Description:");
+
+        tfUsername.setText("Username");
+
+        tfDate.setText("Date");
+
+        tfTime.setText("Time");
+
+        tfDescription.setText("Description");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -64,15 +88,45 @@ public class DashboardGUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbQuickAppointment)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addComponent(lbQuickAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbUsername)
+                    .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbDate)
+                    .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbTime)
+                    .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbDescription)
+                    .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnMainLayout = new javax.swing.GroupLayout(pnMain);
@@ -268,12 +322,20 @@ public class DashboardGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnSetting;
     private javax.swing.JButton btnTechnician;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbDate;
+    private javax.swing.JLabel lbDescription;
     private javax.swing.JLabel lbLogo;
+    private javax.swing.JLabel lbQuickAppointment;
+    private javax.swing.JLabel lbTime;
+    private javax.swing.JLabel lbUsername;
     private javax.swing.JPanel pnMain;
+    private javax.swing.JTextField tfDate;
+    private javax.swing.JTextField tfDescription;
+    private javax.swing.JTextField tfTime;
+    private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 }
