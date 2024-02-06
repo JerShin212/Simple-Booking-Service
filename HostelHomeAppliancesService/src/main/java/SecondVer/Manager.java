@@ -47,7 +47,7 @@ public class Manager extends User{
             }
             String appointment = username + "," + date + "," + time + "," + technician + "," + description + "," + "pending";
             fileHandler.appendFile("appointments.txt", appointment);
-            // Appointment newAppointment = new Appointment(username, date, time, technician, description);
+            //Appointment newAppointment = new Appointment(username, date, time, technician, description);
             return true;
         }
         return false;
