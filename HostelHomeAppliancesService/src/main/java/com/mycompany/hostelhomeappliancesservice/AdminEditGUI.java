@@ -27,28 +27,20 @@ public class AdminEditGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         pnBg = new javax.swing.JPanel();
-        lbLogo = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         pnSwtichBg = new javax.swing.JPanel();
         btnHome = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnSetting = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
-        lbEdit = new javax.swing.JLabel();
         pnBg1 = new javax.swing.JPanel();
-        pnFixed = new javax.swing.JPanel();
-        lbUsername = new javax.swing.JLabel();
-        lbEmail = new javax.swing.JLabel();
-        lbPasssword = new javax.swing.JLabel();
-        lbAction = new javax.swing.JLabel();
-        pnList = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbEdit = new javax.swing.JTable();
+        lbEdit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         pnBg.setBackground(new java.awt.Color(102, 102, 102));
-
-        lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/Untitled.png"))); // NOI18N
-        lbLogo.setText("Logo");
 
         btnLogout.setBackground(new java.awt.Color(102, 102, 102));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/Logout.png"))); // NOI18N
@@ -124,119 +116,76 @@ public class AdminEditGUI extends javax.swing.JFrame {
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
-        lbEdit.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
-        lbEdit.setForeground(new java.awt.Color(214, 219, 223));
-        lbEdit.setText("Edit");
-
         pnBg1.setBackground(new java.awt.Color(136, 153, 166));
 
-        lbUsername.setText("Username");
-
-        lbEmail.setText("Email");
-
-        lbPasssword.setText("Password");
-
-        lbAction.setText("Action");
-
-        javax.swing.GroupLayout pnFixedLayout = new javax.swing.GroupLayout(pnFixed);
-        pnFixed.setLayout(pnFixedLayout);
-        pnFixedLayout.setHorizontalGroup(
-            pnFixedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnFixedLayout.createSequentialGroup()
-                .addComponent(lbUsername)
-                .addGap(32, 32, 32)
-                .addComponent(lbEmail)
-                .addGap(47, 47, 47)
-                .addComponent(lbPasssword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(lbAction)
-                .addGap(29, 29, 29))
-        );
-        pnFixedLayout.setVerticalGroup(
-            pnFixedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnFixedLayout.createSequentialGroup()
-                .addGroup(pnFixedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbUsername)
-                    .addComponent(lbEmail)
-                    .addComponent(lbPasssword)
-                    .addComponent(lbAction))
-                .addGap(0, 6, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout pnListLayout = new javax.swing.GroupLayout(pnList);
-        pnList.setLayout(pnListLayout);
-        pnListLayout.setHorizontalGroup(
-            pnListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        pnListLayout.setVerticalGroup(
-            pnListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        tbEdit.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Username", "Name", "Role", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tbEdit);
 
         javax.swing.GroupLayout pnBg1Layout = new javax.swing.GroupLayout(pnBg1);
         pnBg1.setLayout(pnBg1Layout);
         pnBg1Layout.setHorizontalGroup(
             pnBg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBg1Layout.createSequentialGroup()
+            .addGroup(pnBg1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnBg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pnList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnFixed, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnBg1Layout.setVerticalGroup(
             pnBg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBg1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnFixed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
+
+        lbEdit.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
+        lbEdit.setForeground(new java.awt.Color(214, 219, 223));
+        lbEdit.setText("Edit");
 
         javax.swing.GroupLayout pnBgLayout = new javax.swing.GroupLayout(pnBg);
         pnBg.setLayout(pnBgLayout);
         pnBgLayout.setHorizontalGroup(
             pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBgLayout.createSequentialGroup()
-                .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnSwtichBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnBgLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(pnBgLayout.createSequentialGroup()
-                        .addComponent(lbEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLogout))
-                    .addComponent(pnBg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(pnSwtichBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnBg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBgLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(lbEdit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(17, 17, 17))
         );
         pnBgLayout.setVerticalGroup(
             pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnBgLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnBgLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBgLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbEdit)
-                            .addComponent(lbLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbEdit))
+                .addGap(16, 16, 16)
                 .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnBg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnSwtichBg, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)))
+                    .addComponent(pnSwtichBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,16 +264,11 @@ public class AdminEditGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSetting;
-    private javax.swing.JLabel lbAction;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbEdit;
-    private javax.swing.JLabel lbEmail;
-    private javax.swing.JLabel lbLogo;
-    private javax.swing.JLabel lbPasssword;
-    private javax.swing.JLabel lbUsername;
     private javax.swing.JPanel pnBg;
     private javax.swing.JPanel pnBg1;
-    private javax.swing.JPanel pnFixed;
-    private javax.swing.JPanel pnList;
     private javax.swing.JPanel pnSwtichBg;
+    private javax.swing.JTable tbEdit;
     // End of variables declaration//GEN-END:variables
 }
