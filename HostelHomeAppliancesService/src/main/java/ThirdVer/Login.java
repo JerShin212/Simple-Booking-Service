@@ -3,6 +3,7 @@ package ThirdVer;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
 
@@ -163,7 +164,47 @@ public class Login extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        try {
+            String username = tfUsername.getText();
+            String password = tfPassword.getText();
+            User user = DataIO.checkUser(username);
+            if (user != null) {
+                if (user.getPassword().equals(password)) {
+                    MainRun.currentUser = user;
+                    switch (user.getRole()) {
+                        case "admin":
+                            AdminDashboardGUI admin = new AdminDashboardGUI();
+                            admin.setVisible(true);
+                            this.dispose();
+                            break;
+                        case "manager":
+                            ManagerDashboardGUI manager = new ManagerDashboardGUI();
+                            manager.setVisible(true);
+                            this.dispose();
+                            break;
+                        case "technician":
+                            TechnicianDashboardGUI technician = new TechnicianDashboardGUI();
+                            technician.setVisible(true);
+                            this.dispose();
+                            break;
+                        case "customer":
+                            CustomerDashboardGUI customer = new CustomerDashboardGUI();
+                            customer.setVisible(true);
+                            this.dispose();
+                            break;
+                        default:
+                            throw new Exception();
+                    }
+                } else {
+                    
+                }
+            } else {
+                
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error occurred");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
@@ -179,37 +220,7 @@ public class Login extends javax.swing.JFrame{
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
@@ -223,8 +234,5 @@ public class Login extends javax.swing.JFrame{
     private javax.swing.JTextField tfPassword;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
-    public void setVisible(boolean b) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setVisible'");
-    }
+    
 }
