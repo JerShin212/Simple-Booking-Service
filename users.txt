@@ -1,2 +1,0 @@
-1,JS,email,password,customer,1
-2,Chisato,email2,password2,technician,2
