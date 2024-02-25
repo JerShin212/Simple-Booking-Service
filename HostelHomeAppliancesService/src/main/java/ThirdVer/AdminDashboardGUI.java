@@ -1,5 +1,7 @@
 package ThirdVer;
 
+import javax.swing.table.DefaultTableModel;
+
 public class AdminDashboardGUI extends javax.swing.JFrame{
 public AdminDashboardGUI() {
         initComponents();
@@ -110,33 +112,12 @@ public AdminDashboardGUI() {
 
         pnContent.setBackground(new java.awt.Color(136, 153, 166));
 
-        tbDashboard.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Username", "Name", "Role"
-            }
-        ));
+        String[] columnNames = {"Username", "Name", "Role"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        tbDashboard.setModel(model);
+        for (User user : DataIO.allUsers) {
+            model.addRow(new Object[]{user.getUsername(), user.getName(), user.getRole()});
+        }
         spTable.setViewportView(tbDashboard);
 
         javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
