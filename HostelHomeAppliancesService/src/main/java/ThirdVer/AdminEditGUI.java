@@ -1,7 +1,8 @@
 package ThirdVer;
 
 public class AdminEditGUI extends javax.swing.JFrame{
-public AdminEditGUI() {
+    
+    public AdminEditGUI() {
         initComponents();
     }
 
@@ -21,9 +22,16 @@ public AdminEditGUI() {
         btnEdit = new javax.swing.JButton();
         btnSetting = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
-        pnContent = new javax.swing.JPanel();
-        spTable = new javax.swing.JScrollPane();
-        tbEdit = new javax.swing.JTable();
+        pbContentBg = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        lbUsername = new javax.swing.JLabel();
+        lbName = new javax.swing.JLabel();
+        tfUsername = new javax.swing.JTextField();
+        tfName = new javax.swing.JTextField();
+        lbRole = new javax.swing.JLabel();
+        btnSave = new javax.swing.JButton();
+        cbTechnician = new javax.swing.JComboBox<>();
+        btnSearch = new javax.swing.JButton();
         lbEdit = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,35 +112,102 @@ public AdminEditGUI() {
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
-        pnContent.setBackground(new java.awt.Color(136, 153, 166));
+        pbContentBg.setBackground(new java.awt.Color(136, 153, 166));
 
-        tbEdit.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Username", "Name", "Role", "Title 4"
+        lbUsername.setText("Username: ");
+
+        lbName.setText("Name:");
+
+        tfUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfUsernameActionPerformed(evt);
             }
-        ));
-        spTable.setViewportView(tbEdit);
+        });
 
-        javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
-        pnContent.setLayout(pnContentLayout);
-        pnContentLayout.setHorizontalGroup(
-            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnContentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+        lbRole.setText("Role:");
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        cbTechnician.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Manager", "Technician", "Customer" }));
+        cbTechnician.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTechnicianActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/search-icon-2048x2048-4r9dtbbw.png"))); // NOI18N
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(btnSave))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbRole, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tfName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tfUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbTechnician, 0, 200, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        pnContentLayout.setVerticalGroup(
-            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnContentLayout.createSequentialGroup()
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbUsername)
+                        .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbName)
+                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbTechnician, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbRole))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(btnSave)
+                .addGap(28, 28, 28))
+        );
+
+        javax.swing.GroupLayout pbContentBgLayout = new javax.swing.GroupLayout(pbContentBg);
+        pbContentBg.setLayout(pbContentBgLayout);
+        pbContentBgLayout.setHorizontalGroup(
+            pbContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pbContentBgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pbContentBgLayout.setVerticalGroup(
+            pbContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pbContentBgLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         lbEdit.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
@@ -147,8 +222,8 @@ public AdminEditGUI() {
                 .addContainerGap()
                 .addComponent(pnSwtichBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(pbContentBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBgLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(lbEdit)
@@ -165,8 +240,10 @@ public AdminEditGUI() {
                     .addComponent(lbEdit))
                 .addGap(16, 16, 16)
                 .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnSwtichBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(pnSwtichBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnBgLayout.createSequentialGroup()
+                        .addComponent(pbContentBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -185,8 +262,6 @@ public AdminEditGUI() {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
-        MainRun.currentUser = null;
-        MainRun.admin = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
@@ -212,6 +287,22 @@ public AdminEditGUI() {
         b.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfUsernameActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void cbTechnicianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTechnicianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTechnicianActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,12 +344,19 @@ public AdminEditGUI() {
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSetting;
-    private javax.swing.JScrollPane spTable;
+    private javax.swing.JComboBox<String> cbTechnician;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel lbEdit;
+    private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbRole;
+    private javax.swing.JLabel lbUsername;
+    private javax.swing.JPanel pbContentBg;
     private javax.swing.JPanel pnBg;
-    private javax.swing.JPanel pnContent;
     private javax.swing.JPanel pnSwtichBg;
-    private javax.swing.JTable tbEdit;
+    private javax.swing.JTextField tfName;
+    private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 }
