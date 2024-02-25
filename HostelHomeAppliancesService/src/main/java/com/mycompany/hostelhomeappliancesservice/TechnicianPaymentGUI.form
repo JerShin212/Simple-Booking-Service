@@ -290,41 +290,41 @@
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lbUsername" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lbDate" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lbTime" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace pref="66" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Component id="lbDATE" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="tfUsername" min="-2" pref="180" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="lbTIME" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="lbDescription" max="32767" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="tfDescription" pref="180" max="32767" attributes="0"/>
-                                              <Component id="tfFees" max="32767" attributes="0"/>
-                                          </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lbDescription" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="tfDescription" pref="180" max="32767" attributes="0"/>
+                                      <Component id="tfFees" max="32767" attributes="0"/>
+                                  </Group>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbUsername" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbDate" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="lbTime" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace pref="68" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="tfUsername" pref="180" max="32767" attributes="0"/>
+                                              <Component id="tfDate" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                          <Component id="tfTime" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -338,15 +338,15 @@
                               <Component id="lbUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbDATE" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfDate" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbTIME" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfTime" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -404,22 +404,19 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPayActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lbDATE">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;Date&gt;"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lbTIME">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;Time&gt;"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="tfFees">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Fees: "/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfDate">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfDateActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfTime">
                 </Component>
               </SubComponents>
             </Container>

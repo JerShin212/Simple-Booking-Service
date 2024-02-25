@@ -45,10 +45,10 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
         tfUsername = new javax.swing.JTextField();
         tfDescription = new javax.swing.JTextField();
         btnPay = new javax.swing.JButton();
-        lbDATE = new javax.swing.JLabel();
-        lbTIME = new javax.swing.JLabel();
         tfFees = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        tfDate = new javax.swing.JTextField();
+        tfTime = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -187,11 +187,13 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
             }
         });
 
-        lbDATE.setText("<Date>");
-
-        lbTIME.setText("<Time>");
-
         jLabel3.setText("Fees: ");
+
+        tfDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfDateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
         pnContent.setLayout(pnContentLayout);
@@ -205,31 +207,32 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                         .addComponent(btnPay)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnContentLayout.createSequentialGroup()
-                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnContentLayout.createSequentialGroup()
-                                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbDATE)
-                                        .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(pnContentLayout.createSequentialGroup()
-                                        .addComponent(lbTIME)
-                                        .addGap(140, 140, 140))))
+                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(pnContentLayout.createSequentialGroup()
-                                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(pnContentLayout.createSequentialGroup()
-                                        .addComponent(lbDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)))
-                                .addGap(46, 46, 46)
+                                .addComponent(lbDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)))
+                        .addGap(46, 46, 46)
+                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(tfFees))
+                        .addGap(8, 8, 8))
+                    .addGroup(pnContentLayout.createSequentialGroup()
+                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnContentLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                    .addComponent(tfFees))))
-                        .addGap(8, 8, 8))))
+                                    .addComponent(tfUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(tfDate))
+                                .addGap(8, 8, 8))
+                            .addGroup(pnContentLayout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(tfTime)
+                                .addContainerGap())))))
         );
         pnContentLayout.setVerticalGroup(
             pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,14 +241,14 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbUsername)
                     .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                .addGap(6, 6, 6)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbDate)
-                    .addComponent(lbDATE))
+                    .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTime)
-                    .addComponent(lbTIME))
+                    .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -375,6 +378,10 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfUsernameActionPerformed
 
+    private void tfDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfDateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -420,19 +427,19 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnSetting;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel lbDATE;
     private javax.swing.JLabel lbDashboard;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbDescription;
-    private javax.swing.JLabel lbTIME;
     private javax.swing.JLabel lbTime;
     private javax.swing.JLabel lbUsername;
     private javax.swing.JPanel pbBg;
     private javax.swing.JPanel pnContent;
     private javax.swing.JPanel pnContentBg;
     private javax.swing.JPanel pnSwitch;
+    private javax.swing.JTextField tfDate;
     private javax.swing.JTextField tfDescription;
     private javax.swing.JTextField tfFees;
+    private javax.swing.JTextField tfTime;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
 }
