@@ -1,22 +1,24 @@
 package ThirdVer;
 
-public class Payment {
+public class Feedback {
+    private User technician;
     private User customer;
     private String date;
     private String time;
     private String description;
-    private User technician;
-    private String fees;
-    private String status;
+    private String feedback;
 
-    public Payment(User customer, String date, String time, String description, User technician, String fees, String status) {
+    public Feedback(User technician, User customer, String date, String time, String description, String feedback) {
+        this.technician = technician;
         this.customer = customer;
         this.date = date;
         this.time = time;
         this.description = description;
-        this.technician = technician;
-        this.fees = fees;
-        this.status = status;
+        this.feedback = feedback;
+    }
+
+    public User getTechnician() {
+        return technician;
     }
 
     public User getCustomer() {
@@ -35,16 +37,11 @@ public class Payment {
         return description;
     }
 
-    public User getTechnician() {
-        return technician;
+    public String getFeedback() {
+        return feedback;
     }
 
-    public String getStatus() {
-        return status;
+    public void setTechnician(User technician) {
+        this.technician = technician;
     }
-
-    public String getFees() {
-        return fees;
-    }
-
 }

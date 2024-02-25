@@ -1,3 +1,3 @@
-Suichan,2024-03-01,12:00,Fix Light,technician,pending
-Suichan,2024-03-02,11:00,Fix Fan,technician,pending
+Suichan,2024-03-01,12:00,Fix Light,technician,paid
 Suichan,2024-03-01,15:00,Fix Light,technician,pending
+Suichan,2024-03-02,11:00,Fix Fan,technician,pending

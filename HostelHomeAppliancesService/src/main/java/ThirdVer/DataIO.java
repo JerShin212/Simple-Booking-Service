@@ -11,6 +11,7 @@ public class DataIO {
     public static ArrayList<User> allUsers = new ArrayList<User>();
     public static ArrayList<Appointment> allAppointments = new ArrayList<Appointment>();
     public static ArrayList<Payment> allPayments = new ArrayList<Payment>();
+    public static ArrayList<Feedback> allFeedbacks = new ArrayList<Feedback>();
     public static void read() {
         try {
             File userFile = new File("users.txt");
@@ -45,11 +46,23 @@ public class DataIO {
                 String[] payment = data.split(",");
                 User customer = checkUser(payment[0]);
                 User technician = checkUser(payment[4]);
-                Payment newPayment = new Payment(customer, payment[1], payment[2], payment[3], technician, payment[5]);
+                Payment newPayment = new Payment(customer, payment[1], payment[2], payment[3], technician, payment[5], payment[6]);
                 allPayments.add(newPayment);
             }
             paymentScanner.close();
-        
+            
+            File feedbackFile = new File("feedbacks.txt");
+            checkFile(feedbackFile);
+            Scanner feedbackScanner = new Scanner(feedbackFile);
+            while (feedbackScanner.hasNextLine()) {
+                String data = feedbackScanner.nextLine();
+                String[] feedback = data.split(",");
+                User customer = checkUser(feedback[0]);
+                User technician = checkUser(feedback[4]);
+                Feedback newFeedback = new Feedback(technician, customer, feedback[1], feedback[2], feedback[3], feedback[5]);
+                allFeedbacks.add(newFeedback);
+            }
+            feedbackScanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -79,9 +92,17 @@ public class DataIO {
             checkFile(paymentFile);
             FileWriter paymentWriter = new FileWriter("payments.txt");
             for (Payment payment : allPayments) {
-                paymentWriter.write(payment.getCustomer().getUsername() + "," + payment.getDate() + "," + payment.getTime() + "," + payment.getDescription() + "," + payment.getTechnician().getUsername() + "," + payment.getStatus() + "\n");
+                paymentWriter.write(payment.getCustomer().getUsername() + "," + payment.getDate() + "," + payment.getTime() + "," + payment.getDescription() + "," + payment.getTechnician().getUsername() + "," + payment.getFees() + payment.getStatus() + "\n");
             }
             paymentWriter.close();
+
+            File feedbackFile = new File("feedbacks.txt");
+            checkFile(feedbackFile);
+            FileWriter feedbackWriter = new FileWriter("feedbacks.txt");
+            for (Feedback feedback : allFeedbacks) {
+                feedbackWriter.write(feedback.getTechnician().getUsername() + "," + feedback.getCustomer().getUsername() + "," + feedback.getDate() + "," + feedback.getTime() + "," + feedback.getDescription() + "," + feedback.getFeedback() + "\n");
+            }
+            feedbackWriter.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -141,6 +162,15 @@ public class DataIO {
             }
         }
         return true;
+    }
+
+    public static Appointment Exist(String date, String time, String description, String customer) {
+        for (Appointment appointment : allAppointments) {
+            if (appointment.getDate().equals(date) && appointment.getTime().equals(time) && appointment.getDescription().equals(description) && appointment.getCustomer().getUsername().equals(customer)) {
+                return appointment;
+            }
+        }
+        return null;
     }
 
 }
