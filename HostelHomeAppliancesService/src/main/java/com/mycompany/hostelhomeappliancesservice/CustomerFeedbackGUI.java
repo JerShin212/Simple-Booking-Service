@@ -163,13 +163,6 @@ public class CustomerFeedbackGUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-
-        tbFeedback.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        tbFeedback.getColumnModel().getColumn(0).setPreferredWidth(80);
-        tbFeedback.getColumnModel().getColumn(1).setPreferredWidth(50);
-        tbFeedback.getColumnModel().getColumn(2).setPreferredWidth(50);
-        tbFeedback.getColumnModel().getColumn(3).setPreferredWidth(118);
-        
         jScrollPane2.setViewportView(tbFeedback);
 
         javax.swing.GroupLayout pnMainLayout = new javax.swing.GroupLayout(pnMain);

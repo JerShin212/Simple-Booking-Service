@@ -37,7 +37,7 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
         lbDATE = new javax.swing.JLabel();
         lbTIME = new javax.swing.JLabel();
         tfFees = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lbFees = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,7 +180,7 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
 
         lbTIME.setText("<Time>");
 
-        jLabel3.setText("Fees: ");
+        lbFees.setText("Fees: ");
 
         javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
         pnContent.setLayout(pnContentLayout);
@@ -210,7 +210,7 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                                         .addGap(140, 140, 140))))
                             .addGroup(pnContentLayout.createSequentialGroup()
                                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
+                                    .addComponent(lbFees)
                                     .addGroup(pnContentLayout.createSequentialGroup()
                                         .addComponent(lbDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(18, 18, 18)))
@@ -242,7 +242,7 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfFees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(lbFees))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(btnPay)
                 .addGap(46, 46, 46))
@@ -408,7 +408,7 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnPayment;
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnSetting;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lbFees;
     private javax.swing.JLabel lbDATE;
     private javax.swing.JLabel lbDashboard;
     private javax.swing.JLabel lbDate;

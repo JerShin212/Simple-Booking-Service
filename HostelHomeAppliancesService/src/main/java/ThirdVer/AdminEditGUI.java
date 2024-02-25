@@ -21,8 +21,8 @@ public AdminEditGUI() {
         btnEdit = new javax.swing.JButton();
         btnSetting = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
-        pnBg1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        pnContent = new javax.swing.JPanel();
+        spTable = new javax.swing.JScrollPane();
         tbEdit = new javax.swing.JTable();
         lbEdit = new javax.swing.JLabel();
 
@@ -104,7 +104,7 @@ public AdminEditGUI() {
                 .addContainerGap(113, Short.MAX_VALUE))
         );
 
-        pnBg1.setBackground(new java.awt.Color(136, 153, 166));
+        pnContent.setBackground(new java.awt.Color(136, 153, 166));
 
         tbEdit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,22 +117,22 @@ public AdminEditGUI() {
                 "Username", "Name", "Role", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tbEdit);
+        spTable.setViewportView(tbEdit);
 
-        javax.swing.GroupLayout pnBg1Layout = new javax.swing.GroupLayout(pnBg1);
-        pnBg1.setLayout(pnBg1Layout);
-        pnBg1Layout.setHorizontalGroup(
-            pnBg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnBg1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
+        pnContent.setLayout(pnContentLayout);
+        pnContentLayout.setHorizontalGroup(
+            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        pnBg1Layout.setVerticalGroup(
-            pnBg1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnBg1Layout.createSequentialGroup()
+        pnContentLayout.setVerticalGroup(
+            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         lbEdit.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
@@ -147,7 +147,7 @@ public AdminEditGUI() {
                 .addContainerGap()
                 .addComponent(pnSwtichBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnBg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBgLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
@@ -165,7 +165,7 @@ public AdminEditGUI() {
                     .addComponent(lbEdit))
                 .addGap(16, 16, 16)
                 .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnBg1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnSwtichBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -252,10 +252,10 @@ public AdminEditGUI() {
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSetting;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane spTable;
     private javax.swing.JLabel lbEdit;
     private javax.swing.JPanel pnBg;
-    private javax.swing.JPanel pnBg1;
+    private javax.swing.JPanel pnContent;
     private javax.swing.JPanel pnSwtichBg;
     private javax.swing.JTable tbEdit;
     // End of variables declaration//GEN-END:variables
