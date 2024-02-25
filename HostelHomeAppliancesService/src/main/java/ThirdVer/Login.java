@@ -180,11 +180,13 @@ public class Login extends javax.swing.JFrame{
                             break;
                         case "manager":
                             ManagerDashboardGUI manager = new ManagerDashboardGUI();
+                            MainRun.manager = new Manager(user.getUsername(), user.getName(), user.getPassword(), user.getRole());
                             manager.setVisible(true);
                             this.dispose();
                             break;
                         case "technician":
                             TechnicianDashboardGUI technician = new TechnicianDashboardGUI();
+                            MainRun.technician = new Technician(user.getUsername(), user.getName(), user.getPassword(), user.getRole());
                             technician.setVisible(true);
                             this.dispose();
                             break;

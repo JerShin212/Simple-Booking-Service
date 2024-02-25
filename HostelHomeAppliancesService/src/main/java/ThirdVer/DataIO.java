@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.time.LocalDate;
+
 public class DataIO {
     public static ArrayList<User> allUsers = new ArrayList<User>();
     public static ArrayList<Appointment> allAppointments = new ArrayList<Appointment>();
+    public static ArrayList<Payment> allPayments = new ArrayList<Payment>();
     public static void read() {
         try {
             File userFile = new File("users.txt");
@@ -30,10 +32,23 @@ public class DataIO {
                 String[] appointment = data.split(",");
                 User customer = checkUser(appointment[0]);
                 User technician = checkUser(appointment[4]);
-                Appointment newAppointment = new Appointment((Customer) customer, appointment[1], appointment[2], appointment[3], (Technician) technician, appointment[5]);
+                Appointment newAppointment = new Appointment(customer, appointment[1], appointment[2], appointment[3], technician, appointment[5]);
                 allAppointments.add(newAppointment);
             }
             appointmentScanner.close();
+
+            File paymentFile = new File("payments.txt");
+            checkFile(paymentFile);
+            Scanner paymentScanner = new Scanner(paymentFile);
+            while (paymentScanner.hasNextLine()) {
+                String data = paymentScanner.nextLine();
+                String[] payment = data.split(",");
+                User customer = checkUser(payment[0]);
+                User technician = checkUser(payment[4]);
+                Payment newPayment = new Payment(customer, payment[1], payment[2], payment[3], technician, payment[5]);
+                allPayments.add(newPayment);
+            }
+            paymentScanner.close();
         
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
@@ -59,6 +74,14 @@ public class DataIO {
                 appointmentWriter.write(appointment.getCustomer().getUsername() + "," + appointment.getDate() + "," + appointment.getTime() + "," + appointment.getDescription() + "," + appointment.getTechnician().getUsername() + "," + appointment.getStatus() + "\n");
             }
             appointmentWriter.close();
+
+            File paymentFile = new File("payments.txt");
+            checkFile(paymentFile);
+            FileWriter paymentWriter = new FileWriter("payments.txt");
+            for (Payment payment : allPayments) {
+                paymentWriter.write(payment.getCustomer().getUsername() + "," + payment.getDate() + "," + payment.getTime() + "," + payment.getDescription() + "," + payment.getTechnician().getUsername() + "," + payment.getStatus() + "\n");
+            }
+            paymentWriter.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -84,13 +107,43 @@ public class DataIO {
         return null;
     }
 
-    public static boolean checkDate() {
-    LocalDate today = LocalDate.now();
+    public static boolean checkDate(String date) {
+        LocalDate currentDate = LocalDate.now();
+        LocalDate appointmentDate = LocalDate.parse(date);
+        if (appointmentDate.isAfter(currentDate)) {
+            return true;
+        }
+        return false;
+    
+    }
+
+    public static boolean checkTime(String time) {
+        String[] parts = time.split(":");
+        int hour = Integer.parseInt(parts[0]);
+        int minute = Integer.parseInt(parts[1]);
+        if (hour >= 8 && hour <= 17) {
+            if (hour == 17 && minute > 0) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+        
+    }
+
+    public static boolean checkAppointment(String date, String time, String technician, String customer) {
         for (Appointment appointment : allAppointments) {
-            if (appointment.getDate().equals(today.toString())) {
+            if (appointment.getDate().equals(date) && appointment.getTime().equals(time) && appointment.getTechnician().getUsername().equals(technician)) {
+                return false;
+            }
+            if (appointment.getDate().equals(date) && appointment.getTime().equals(time) && appointment.getCustomer().getUsername().equals(customer)) {
                 return false;
             }
         }
         return true;
     }
+
 }
+
+    
+

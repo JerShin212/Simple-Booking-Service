@@ -102,11 +102,16 @@ public AdminDashboardGUI() {
         pnContent.setBackground(new java.awt.Color(136, 153, 166));
 
         String[] columnNames = {"Username", "Name", "Role"};
-        DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         tbDashboard.setModel(model);
         for (User user : DataIO.allUsers) {
             model.addRow(new Object[]{user.getUsername(), user.getName(), user.getRole()});
         }
+        
         spTable.setViewportView(tbDashboard);
 
         javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);

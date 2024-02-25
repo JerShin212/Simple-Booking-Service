@@ -14,7 +14,7 @@ public class Manager extends User{
     public Appointment createAppointment(String userCustomer, String userTechnician, String date, String time, String description) {
         User customer = DataIO.checkUser(userCustomer);
         User technician = DataIO.checkUser(userTechnician);
-        Appointment appointment = new Appointment((Customer) customer, date, time, description, (Technician) technician, "pending");
+        Appointment appointment = new Appointment(customer, date, time, description, technician, "pending");
         DataIO.allAppointments.add(appointment);
         DataIO.write();
         return appointment;

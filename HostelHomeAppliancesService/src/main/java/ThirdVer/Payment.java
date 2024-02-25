@@ -1,6 +1,6 @@
 package ThirdVer;
 
-public class Appointment {
+public class Payment {
     private User customer;
     private String date;
     private String time;
@@ -8,7 +8,7 @@ public class Appointment {
     private User technician;
     private String status;
 
-    public Appointment(User customer, String date, String time, String description, User technician, String status) {
+    public Payment(User customer, String date, String time, String description, User technician, String status) {
         this.customer = customer;
         this.date = date;
         this.time = time;
@@ -39,14 +39,6 @@ public class Appointment {
 
     public String getStatus() {
         return status;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
 }
