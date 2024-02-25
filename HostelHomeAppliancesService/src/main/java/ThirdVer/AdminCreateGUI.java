@@ -2,6 +2,8 @@ package ThirdVer;
 
 import java.awt.Color;
 
+import javax.swing.JOptionPane;
+
 
 public class AdminCreateGUI extends javax.swing.JFrame {
 private String pass;
@@ -283,6 +285,8 @@ private String pass;
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.admin = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
@@ -310,7 +314,35 @@ private String pass;
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnCreateAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccActionPerformed
-        // TODO add your handling code here:
+        try {
+            String username = tfUsername.getText();
+            String name = tfName.getText();
+            String password = tfPassword.getText();
+            String role = cbRole.getSelectedItem().toString();
+            switch (role) {
+                case "Admin":
+                    MainRun.admin.createAdmin(username, name, password);
+                    break;
+                case "Manager":
+                    MainRun.admin.createManager(username, name, password);
+                    break;
+                case "Technician":
+                    MainRun.admin.createTechnician(username, name, password);
+                    break;
+                case "Customer":
+                    MainRun.admin.createCustomer(username, name, password);
+                    break;
+            
+                default:
+                    break;
+            }
+            JOptionPane.showMessageDialog(null, "Account created successfully");
+            tfUsername.setText("");
+            tfName.setText("");
+            tfPassword.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
     }//GEN-LAST:event_btnCreateAccActionPerformed
 
     private void cbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRoleActionPerformed

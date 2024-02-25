@@ -1,5 +1,7 @@
 package ThirdVer;
 
+import javax.swing.JOptionPane;
+
 public class Registration extends javax.swing.JFrame  {
 
     public Registration() {
@@ -198,7 +200,26 @@ public class Registration extends javax.swing.JFrame  {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        // TODO add your handling code here:
+        try {
+            String username = tfUsername.getText();
+            String name = tfName.getText();
+            String password = tfPassword.getText();
+            String confirmPassword = tfConfirmP.getText();
+            if (username.equals("") || name.equals("") || password.equals("") || confirmPassword.equals("")) {
+                throw new Exception("Please fill in all fields");
+            }
+            if (!password.equals(confirmPassword)) {
+                throw new Exception("Password does not match");
+            }
+            User user = new User(username, name, password, "customer");
+            DataIO.allUsers.add(user);
+            DataIO.write();
+            Login a = new Login();
+            a.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "An error occurred. " + e.getMessage());
+        }
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void lkLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lkLoginMouseClicked

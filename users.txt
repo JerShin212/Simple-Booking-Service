@@ -1,0 +1,5 @@
+Suichan,JS,12345,customer
+Hajime,Hajime,12345,customer
+admin,admin,12345,admin
+manager,manager,12345,manager
+technician,technician,12345,technician

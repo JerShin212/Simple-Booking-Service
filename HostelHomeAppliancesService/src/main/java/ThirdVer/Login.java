@@ -174,6 +174,7 @@ public class Login extends javax.swing.JFrame{
                     switch (user.getRole()) {
                         case "admin":
                             AdminDashboardGUI admin = new AdminDashboardGUI();
+                            MainRun.admin = new Admin(user.getUsername(), user.getName(), user.getPassword(), user.getRole());
                             admin.setVisible(true);
                             this.dispose();
                             break;

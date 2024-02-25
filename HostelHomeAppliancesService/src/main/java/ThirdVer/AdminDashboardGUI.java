@@ -202,6 +202,8 @@ public AdminDashboardGUI() {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.admin = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
