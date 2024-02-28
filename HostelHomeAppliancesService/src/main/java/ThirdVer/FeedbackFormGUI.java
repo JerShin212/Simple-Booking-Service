@@ -292,6 +292,8 @@ public class FeedbackFormGUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.customer = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
@@ -309,8 +311,9 @@ public class FeedbackFormGUI extends javax.swing.JFrame {
             if (appointment == null) {
                 throw new Exception("Appointment does not exist");
             }
-            Feedback feedback1 = new Feedback(technician1, customer, date, time, description, feedback);
+            Feedback feedback1 = new Feedback(technician1, customer, appointment.getDate(), appointment.getTime(), appointment.getDescription(), feedback);
             DataIO.allFeedbacks.add(feedback1);
+            appointment.setStatus("completed");
             DataIO.write();
             JOptionPane.showMessageDialog(null, "Feedback sent successfully");
             tfDate.setText("");

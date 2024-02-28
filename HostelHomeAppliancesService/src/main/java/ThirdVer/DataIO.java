@@ -57,8 +57,8 @@ public class DataIO {
             while (feedbackScanner.hasNextLine()) {
                 String data = feedbackScanner.nextLine();
                 String[] feedback = data.split(",");
-                User customer = checkUser(feedback[0]);
-                User technician = checkUser(feedback[4]);
+                User customer = checkUser(feedback[1]);
+                User technician = checkUser(feedback[0]);
                 Feedback newFeedback = new Feedback(technician, customer, feedback[1], feedback[2], feedback[3], feedback[5]);
                 allFeedbacks.add(newFeedback);
             }
@@ -92,7 +92,7 @@ public class DataIO {
             checkFile(paymentFile);
             FileWriter paymentWriter = new FileWriter("payments.txt");
             for (Payment payment : allPayments) {
-                paymentWriter.write(payment.getCustomer().getUsername() + "," + payment.getDate() + "," + payment.getTime() + "," + payment.getDescription() + "," + payment.getTechnician().getUsername() + "," + payment.getFees() + payment.getStatus() + "\n");
+                paymentWriter.write(payment.getCustomer().getUsername() + "," + payment.getDate() + "," + payment.getTime() + "," + payment.getDescription() + "," + payment.getTechnician().getUsername() + "," + payment.getFees() + "," + payment.getStatus() + "\n");
             }
             paymentWriter.close();
 
@@ -171,6 +171,18 @@ public class DataIO {
             }
         }
         return null;
+    }
+
+    public static Appointment recentAppointment(String customer) {
+        Appointment closestAppointment = null;
+        LocalDate currentDate = LocalDate.now();
+        for (Appointment appointment : allAppointments) {
+            LocalDate appointmentDate = LocalDate.parse(appointment.getDate());
+            if (appointmentDate.isAfter(currentDate) && (closestAppointment == null || appointmentDate.isBefore(LocalDate.parse(closestAppointment.getDate()))) && !appointment.getStatus().equals("paid") && !appointment.getStatus().equals("completed")){
+                closestAppointment = appointment;
+            }
+        }
+        return closestAppointment;
     }
 
 }
