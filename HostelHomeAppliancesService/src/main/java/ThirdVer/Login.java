@@ -180,11 +180,12 @@ public class Login extends javax.swing.JFrame{
                             break;
                         case "customer":
                             CustomerDashboardGUI customer = new CustomerDashboardGUI();
+                            MainRun.customer = new Customer(user.getUsername(), user.getName(), user.getPassword(), user.getRole());
                             customer.setVisible(true);
                             this.dispose();
                             break;
                         default:
-                            throw new Exception();
+                            throw new Exception("No role found for user");
                     }
                 } else {
                     
@@ -194,7 +195,7 @@ public class Login extends javax.swing.JFrame{
             }
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "An error occurred");
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
