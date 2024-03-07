@@ -133,23 +133,35 @@ public class CustomerAppointmentGUI extends javax.swing.JFrame {
         lbDescription.setForeground(new java.awt.Color(232, 234, 237));
         lbDescription.setText("Description:");
 
-        Appointment a = DataIO.recentAppointment(MainRun.currentUser.getUsername());
+        Appointment recentAppointment = DataIO.recentAppointment(MainRun.currentUser.getUsername());
+
+        if (recentAppointment == null) {
+            lbDateMain.setText("No upcoming appointment");
+            lbTimeMain.setText("");
+            lbTechnicianMain.setText("");
+            lbDescriptionMain.setText("");
+        } else {
+            lbDateMain.setText(recentAppointment.getDate());
+            lbTimeMain.setText(recentAppointment.getTime());
+            lbTechnicianMain.setText(recentAppointment.getTechnician().getUsername());
+            lbDescriptionMain.setText(recentAppointment.getDescription());
+        }
 
         lbDateMain.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lbDateMain.setForeground(new java.awt.Color(255, 255, 255));
-        lbDateMain.setText(a.getDate());
+        // lbDateMain.setText(a.getDate());
 
         lbTimeMain.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lbTimeMain.setForeground(new java.awt.Color(255, 255, 255));
-        lbTimeMain.setText(a.getTime());
+        // lbTimeMain.setText(a.getTime());
 
         lbTechnicianMain.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lbTechnicianMain.setForeground(new java.awt.Color(255, 255, 255));
-        lbTechnicianMain.setText(a.getTechnician().getUsername());
+        // lbTechnicianMain.setText(a.getTechnician().getUsername());
 
         lbDescriptionMain.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lbDescriptionMain.setForeground(new java.awt.Color(255, 255, 255));
-        lbDescriptionMain.setText(a.getDescription());
+        // lbDescriptionMain.setText(a.getDescription());
 
         javax.swing.GroupLayout pnUpcoming1Layout = new javax.swing.GroupLayout(pnUpcoming1);
         pnUpcoming1.setLayout(pnUpcoming1Layout);
