@@ -1,9 +1,8 @@
+
 package ThirdVer;
 
 import java.util.Collections;
 import java.util.Comparator;
-
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class TechnicianScheduleGUI extends javax.swing.JFrame {
@@ -17,15 +16,14 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
         pnBg = new javax.swing.JPanel();
         pnSwitch = new javax.swing.JPanel();
         btnHome = new javax.swing.JButton();
-        btnAppointment = new javax.swing.JButton();
         btnSetting = new javax.swing.JButton();
         btnPayment = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
         btnSchedule = new javax.swing.JButton();
-        lbDashboard = new javax.swing.JLabel();
+        lbSchedule = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
-        pnContent = new javax.swing.JPanel();
-        spTable = new javax.swing.JScrollPane();
+        pnContentBg = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         tbSchedule = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,16 +37,6 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
-            }
-        });
-
-        btnAppointment.setBackground(new java.awt.Color(102, 102, 102));
-        btnAppointment.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnAppointment.setForeground(new java.awt.Color(255, 255, 255));
-        btnAppointment.setText("Appointment");
-        btnAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAppointmentActionPerformed(evt);
             }
         });
 
@@ -94,12 +82,10 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnSwitchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                    .addGroup(pnSwitchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                        .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSetting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSetting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnSwitchLayout.setVerticalGroup(
@@ -108,8 +94,6 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,12 +101,12 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
                 .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(67, 67, 67))
         );
 
-        lbDashboard.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
-        lbDashboard.setForeground(new java.awt.Color(214, 219, 223));
-        lbDashboard.setText("Schedule");
+        lbSchedule.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
+        lbSchedule.setForeground(new java.awt.Color(214, 219, 223));
+        lbSchedule.setText("Schedule");
 
         btnLogout.setBackground(new java.awt.Color(102, 102, 102));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/Logout.png"))); // NOI18N
@@ -157,29 +141,22 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
                 model.addRow(new Object[]{appointment.getDate(), appointment.getTime(), appointment.getCustomer().getUsername(), appointment.getDescription()});
             }
         }
+        jScrollPane1.setViewportView(tbSchedule);
 
-        tbSchedule.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        tbSchedule.getColumnModel().getColumn(0).setPreferredWidth(75);
-        tbSchedule.getColumnModel().getColumn(1).setPreferredWidth(55);
-        tbSchedule.getColumnModel().getColumn(2).setPreferredWidth(55);
-        tbSchedule.getColumnModel().getColumn(3).setPreferredWidth(130);
-
-        spTable.setViewportView(tbSchedule);
-
-        javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
-        pnContent.setLayout(pnContentLayout);
-        pnContentLayout.setHorizontalGroup(
-            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnContentLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnContentBgLayout = new javax.swing.GroupLayout(pnContentBg);
+        pnContentBg.setLayout(pnContentBgLayout);
+        pnContentBgLayout.setHorizontalGroup(
+            pnContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnContentBgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        pnContentLayout.setVerticalGroup(
-            pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnContentLayout.createSequentialGroup()
+        pnContentBgLayout.setVerticalGroup(
+            pnContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnContentBgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnBgLayout = new javax.swing.GroupLayout(pnBg);
@@ -192,10 +169,10 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(pnSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(pnContentBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnBgLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(lbDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnLogout)))
                 .addGap(19, 19, 19))
@@ -205,12 +182,12 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
             .addGroup(pnBgLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDashboard)
+                    .addComponent(lbSchedule)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnSwitch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(pnContentBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,12 +209,6 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
-
-    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
-        TechnicianAppointmentGUI a = new TechnicianAppointmentGUI();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAppointmentActionPerformed
 
     private void btnSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingActionPerformed
         Setting y = new Setting();
@@ -266,19 +237,17 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPayment;
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnSetting;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbSchedule;
     private javax.swing.JPanel pnBg;
-    private javax.swing.JPanel pnContent;
-    private javax.swing.JScrollPane spTable;
-    private javax.swing.JLabel lbDashboard;
+    private javax.swing.JPanel pnContentBg;
     private javax.swing.JPanel pnSwitch;
     private javax.swing.JTable tbSchedule;
     // End of variables declaration//GEN-END:variables

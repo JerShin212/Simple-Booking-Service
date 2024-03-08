@@ -1,54 +1,49 @@
+
 package ThirdVer;
 
 import javax.swing.JOptionPane;
 
-public class ManagerAppointmentGUI extends javax.swing.JFrame{
 
+public class ManagerAppointmentGUI extends javax.swing.JFrame {
+
+    
     public ManagerAppointmentGUI() {
-        initComponents();
-    }
+            initComponents();
+        } // Add closing curly brace here
+        
+        private void initComponents() {
 
-    private void initComponents() {
-
-        pnBg = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         pnContentbg = new javax.swing.JPanel();
         pnContent = new javax.swing.JPanel();
-        lbUsername = new javax.swing.JLabel();
-        lbDate = new javax.swing.JLabel();
-        lbTime = new javax.swing.JLabel();
-        lbDescription = new javax.swing.JLabel();
-        tfUsername = new javax.swing.JTextField();
-        tfDate = new javax.swing.JTextField();
-        tfTime = new javax.swing.JTextField();
-        tfDescription = new javax.swing.JTextField();
-        lbTechnician = new javax.swing.JLabel();
         btnBook = new javax.swing.JButton();
         cbTechnician = new javax.swing.JComboBox<>();
+        tfUsername = new javax.swing.JTextField();
+        lbDescription = new javax.swing.JLabel();
+        lbTime = new javax.swing.JLabel();
+        lbDate = new javax.swing.JLabel();
+        lbUsername = new javax.swing.JLabel();
+        lbTechnician = new javax.swing.JLabel();
+        tfDescription = new javax.swing.JTextField();
+        tfTime = new javax.swing.JTextField();
+        tfDate = new javax.swing.JTextField();
+        lbLocation = new javax.swing.JLabel();
+        tfLocation = new javax.swing.JTextField();
         btnLogout = new javax.swing.JButton();
-        pnSwitch = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         btnHome = new javax.swing.JButton();
         btnAppointment = new javax.swing.JButton();
         btnSetting = new javax.swing.JButton();
         btnSchedule = new javax.swing.JButton();
         btnTechnician = new javax.swing.JButton();
+        btnFeedback = new javax.swing.JButton();
         lbAppointment = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnBg.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel4.setBackground(new java.awt.Color(102, 102, 102));
 
         pnContentbg.setBackground(new java.awt.Color(204, 204, 204));
-
-        lbUsername.setText("Username: ");
-
-        lbDate.setText("Date: ");
-
-        lbTime.setText("Time: ");
-
-        lbDescription.setText("Description:");
-
-
-        lbTechnician.setText("Technician:");
 
         btnBook.setText("Book");
         btnBook.addActionListener(new java.awt.event.ActionListener() {
@@ -64,6 +59,19 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
             }
         }
 
+
+        lbDescription.setText("Description:");
+
+        lbTime.setText("Time(24H): ");
+
+        lbDate.setText("Date(yyyy-mm-dd): ");
+
+        lbUsername.setText("Username: ");
+
+        lbTechnician.setText("Technician:");
+
+        lbLocation.setText("Location: ");
+
         javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
         pnContent.setLayout(pnContentLayout);
         pnContentLayout.setHorizontalGroup(
@@ -74,22 +82,35 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
                         .addContainerGap()
                         .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
                                 .addComponent(lbDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lbTechnician, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(lbDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(tfTime, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfDate, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbTechnician, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnContentLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(tfDate, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfTime, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)))
+                            .addGroup(pnContentLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(tfDescription))))
                     .addGroup(pnContentLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(btnBook)))
+                        .addGap(106, 106, 106)
+                        .addComponent(btnBook))
+                    .addGroup(pnContentLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnContentLayout.createSequentialGroup()
+                                .addComponent(lbTechnician, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnContentLayout.createSequentialGroup()
+                                .addComponent(lbLocation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(24, 24, 24)))
+                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfLocation)
+                            .addComponent(cbTechnician, 0, 230, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnContentLayout.setVerticalGroup(
@@ -109,25 +130,29 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
                     .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbLocation)
+                    .addComponent(tfLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTechnician)
                     .addComponent(cbTechnician, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbDescription)
-                    .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDescription))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBook)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnContentbgLayout = new javax.swing.GroupLayout(pnContentbg);
         pnContentbg.setLayout(pnContentbgLayout);
         pnContentbgLayout.setHorizontalGroup(
             pnContentbgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnContentbgLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnContentbgLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(pnContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnContentbgLayout.setVerticalGroup(
             pnContentbgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,6 +183,11 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
         btnAppointment.setBackground(new java.awt.Color(204, 204, 204));
         btnAppointment.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnAppointment.setText("Appointment");
+        btnAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentActionPerformed(evt);
+            }
+        });
 
         btnSetting.setBackground(new java.awt.Color(102, 102, 102));
         btnSetting.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -189,23 +219,37 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
             }
         });
 
-        javax.swing.GroupLayout pnSwitchLayout = new javax.swing.GroupLayout(pnSwitch);
-        pnSwitch.setLayout(pnSwitchLayout);
-        pnSwitchLayout.setHorizontalGroup(
-            pnSwitchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnSwitchLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnSwitchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnTechnician, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+        btnFeedback.setBackground(new java.awt.Color(102, 102, 102));
+        btnFeedback.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        btnFeedback.setForeground(new java.awt.Color(255, 255, 255));
+        btnFeedback.setText("Feedback");
+        btnFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFeedbackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTechnician, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnFeedback, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        pnSwitchLayout.setVerticalGroup(
-            pnSwitchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnSwitchLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -214,43 +258,45 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
                 .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTechnician, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         lbAppointment.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
         lbAppointment.setForeground(new java.awt.Color(214, 219, 223));
         lbAppointment.setText("Appointment");
 
-        javax.swing.GroupLayout pnBgLayout = new javax.swing.GroupLayout(pnBg);
-        pnBg.setLayout(pnBgLayout);
-        pnBgLayout.setHorizontalGroup(
-            pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnBgLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnContentbg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(pnBgLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(lbAppointment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(14, 14, 14))
         );
-        pnBgLayout.setVerticalGroup(
-            pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnBgLayout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbAppointment)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnSwitch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnBgLayout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(pnContentbg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -259,11 +305,11 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -274,6 +320,10 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
+        
+    }//GEN-LAST:event_btnAppointmentActionPerformed
 
     private void btnScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleActionPerformed
         ManagerScheduleGUI b = new ManagerScheduleGUI();
@@ -286,37 +336,6 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnTechnicianActionPerformed
-
-    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
-        try {
-            String username = tfUsername.getText();
-            String date = tfDate.getText();
-            String time = tfTime.getText();
-            if (DataIO.checkUser(username)==null) {
-                throw new Exception("Invalid username");
-            }
-            if (!DataIO.checkDate(date)) {
-                throw new Exception("Invalid date");
-            }
-            if (!DataIO.checkTime(time)) {
-                throw new Exception("Invalid time");
-            }
-            if (!DataIO.checkAppointment(date, time, cbTechnician.getSelectedItem().toString(), username)) {
-                throw new Exception("Appointment already exists");
-            }
-            String description = tfDescription.getText();
-            String technician = cbTechnician.getSelectedItem().toString();
-            MainRun.manager.createAppointment(username, technician, date, time, description);
-            JOptionPane.showMessageDialog(this, "Appointment created");
-            tfUsername.setText("");
-            tfDate.setText("");
-            tfTime.setText("");
-            tfDescription.setText("");
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-    }//GEN-LAST:event_btnBookActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
@@ -331,28 +350,70 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame{
         y.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSettingActionPerformed
-    
+
+    private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
+        try {
+            String username = tfUsername.getText();
+            String date = tfDate.getText();
+            String time = tfTime.getText();
+            String location = tfLocation.getText();
+            if (DataIO.checkUser(username)==null) {
+                throw new Exception("Invalid username");
+            }
+            if (!DataIO.checkDate(date)) {
+                throw new Exception("Invalid date");
+            }
+            if (!DataIO.checkTime(time)) {
+                throw new Exception("Invalid time");
+            }
+            if (!DataIO.checkAppointment(date, time, cbTechnician.getSelectedItem().toString(), username)) {
+                throw new Exception("Appointment already exists");
+            }
+            String description = tfDescription.getText();
+            String technician = cbTechnician.getSelectedItem().toString();
+            MainRun.manager.createAppointment(username, technician, date, time, location, description);
+            JOptionPane.showMessageDialog(this, "Appointment created");
+            tfUsername.setText("");
+            tfDate.setText("");
+            tfTime.setText("");
+            tfDescription.setText("");
+            tfLocation.setText("");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_btnBookActionPerformed
+
+    private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
+        ManagerFeedbackGUI d = new ManagerFeedbackGUI();
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFeedbackActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnBook;
+    private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnSetting;
     private javax.swing.JButton btnTechnician;
     private javax.swing.JComboBox<String> cbTechnician;
-    private javax.swing.JPanel pnSwitch;
-    private javax.swing.JPanel pnBg;
-    private javax.swing.JPanel pnContent;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lbAppointment;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbDescription;
-    private javax.swing.JLabel lbTime;
+    private javax.swing.JLabel lbLocation;
     private javax.swing.JLabel lbTechnician;
+    private javax.swing.JLabel lbTime;
     private javax.swing.JLabel lbUsername;
+    private javax.swing.JPanel pnContent;
     private javax.swing.JPanel pnContentbg;
     private javax.swing.JTextField tfDate;
     private javax.swing.JTextField tfDescription;
+    private javax.swing.JTextField tfLocation;
     private javax.swing.JTextField tfTime;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables

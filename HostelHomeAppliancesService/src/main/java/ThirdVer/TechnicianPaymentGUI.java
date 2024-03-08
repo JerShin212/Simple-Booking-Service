@@ -1,9 +1,12 @@
+
 package ThirdVer;
 
 import javax.swing.JOptionPane;
 
+
 public class TechnicianPaymentGUI extends javax.swing.JFrame {
 
+    
     public TechnicianPaymentGUI() {
         initComponents();
     }
@@ -13,12 +16,11 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
         pbBg = new javax.swing.JPanel();
         pnSwitch = new javax.swing.JPanel();
         btnHome = new javax.swing.JButton();
-        btnAppointment = new javax.swing.JButton();
         btnSetting = new javax.swing.JButton();
         btnPayment = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
         btnSchedule = new javax.swing.JButton();
-        lbDashboard = new javax.swing.JLabel();
+        lbPayment = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         pnContentBg = new javax.swing.JPanel();
         pnContent = new javax.swing.JPanel();
@@ -30,11 +32,15 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
         tfDescription = new javax.swing.JTextField();
         btnPay = new javax.swing.JButton();
         tfFees = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lbFees = new javax.swing.JLabel();
         tfDate = new javax.swing.JTextField();
         tfTime = new javax.swing.JTextField();
+        lbID = new javax.swing.JLabel();
+        tfID = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(650, 400));
 
         pbBg.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -45,16 +51,6 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
-            }
-        });
-
-        btnAppointment.setBackground(new java.awt.Color(102, 102, 102));
-        btnAppointment.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnAppointment.setForeground(new java.awt.Color(255, 255, 255));
-        btnAppointment.setText("Appointment");
-        btnAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAppointmentActionPerformed(evt);
             }
         });
 
@@ -100,7 +96,6 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnSwitchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                    .addComponent(btnAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                     .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -113,8 +108,6 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -122,12 +115,12 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                 .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lbDashboard.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
-        lbDashboard.setForeground(new java.awt.Color(214, 219, 223));
-        lbDashboard.setText("Payment");
+        lbPayment.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
+        lbPayment.setForeground(new java.awt.Color(214, 219, 223));
+        lbPayment.setText("Payment");
 
         btnLogout.setBackground(new java.awt.Color(102, 102, 102));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/Logout.png"))); // NOI18N
@@ -154,55 +147,70 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Fees: ");
+        lbFees.setText("Fees: ");
+
+        lbID.setText("ID:");
+
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/search-icon-2048x2048-4r9dtbbw.png"))); // NOI18N
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnContentLayout = new javax.swing.GroupLayout(pnContent);
         pnContent.setLayout(pnContentLayout);
         pnContentLayout.setHorizontalGroup(
             pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnContentLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnContentLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnPay)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnContentLayout.createSequentialGroup()
-                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(pnContentLayout.createSequentialGroup()
-                                .addComponent(lbDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)))
-                        .addGap(46, 46, 46)
-                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(tfFees))
-                        .addGap(8, 8, 8))
+                        .addComponent(btnPay))
                     .addGroup(pnContentLayout.createSequentialGroup()
-                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnContentLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tfUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                    .addComponent(tfDate))
-                                .addGap(8, 8, 8))
+                                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(pnContentLayout.createSequentialGroup()
+                                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbFees)
+                                            .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(4, 4, 4)))
+                                .addGap(18, 18, 18))
                             .addGroup(pnContentLayout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(tfTime)
-                                .addContainerGap())))))
+                                .addComponent(lbID, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)))
+                        .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnContentLayout.createSequentialGroup()
+                                .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(tfUsername)
+                            .addComponent(tfDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfTime, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfDescription, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfFees, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap())
         );
         pnContentLayout.setVerticalGroup(
             pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnContentLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbID)
+                        .addComponent(tfID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbUsername)
                     .addComponent(tfUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                .addGap(3, 3, 3)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbDate)
                     .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,15 +220,15 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                     .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfFees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                    .addComponent(lbFees)
+                    .addComponent(tfFees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addComponent(btnPay)
-                .addGap(46, 46, 46))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnContentBgLayout = new javax.swing.GroupLayout(pnContentBg);
@@ -229,8 +237,8 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
             pnContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnContentBgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(pnContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnContentBgLayout.setVerticalGroup(
             pnContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,30 +255,31 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pbBgLayout.createSequentialGroup()
                 .addGroup(pbBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pbBgLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(lbDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLogout))
-                    .addGroup(pbBgLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(pnSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pnContentBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(19, 19, 19))
+                        .addComponent(pnContentBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pbBgLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(lbPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLogout)))
+                .addGap(14, 14, 14))
         );
         pbBgLayout.setVerticalGroup(
             pbBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pbBgLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(pbBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDashboard)
+                    .addComponent(lbPayment)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(pbBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnSwitch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pbBgLayout.createSequentialGroup()
                         .addComponent(pnContentBg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(pnSwitch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 22, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -292,12 +301,6 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
         b.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
-
-    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
-        TechnicianAppointmentGUI a = new TechnicianAppointmentGUI();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAppointmentActionPerformed
 
     private void btnSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingActionPerformed
         Setting y = new Setting();
@@ -333,10 +336,12 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
             String description = tfDescription.getText();
             String fees = tfFees.getText();
             User customer = DataIO.checkUser(username);
-            Appointment appointment = DataIO.Exist(date, time, description, username);
+            String id = tfID.getText();
+            int ID = Integer.parseInt(id);
+            Appointment appointment = DataIO.checkId(ID);
             if (appointment != null) {
                 appointment.setStatus("paid");
-                Payment payment = new Payment(customer, date, time, description, appointment.getTechnician(), fees, "paid");
+                Payment payment = new Payment(appointment.getId(), customer, date, time, description, appointment.getTechnician(), fees, "paid");
                 DataIO.allPayments.add(payment);
                 DataIO.write();
                 JOptionPane.showMessageDialog(null, "Payment successful");
@@ -351,24 +356,42 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Invalid input");
         }
-
-
     }//GEN-LAST:event_btnPayActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        try {
+            String id = tfID.getText();
+            int ID = Integer.parseInt(id);
+            Appointment appointment = DataIO.checkId(ID);
+            if (appointment != null) {
+                tfUsername.setText(appointment.getCustomer().getUsername());
+                tfDate.setText(appointment.getDate());
+                tfTime.setText(appointment.getTime());
+                tfDescription.setText(appointment.getDescription());
+                tfID.setEditable(false);
+            } else {
+                throw new Exception("Invalid ID");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPay;
     private javax.swing.JButton btnPayment;
     private javax.swing.JButton btnSchedule;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSetting;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel lbDashboard;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbDescription;
+    private javax.swing.JLabel lbFees;
+    private javax.swing.JLabel lbID;
+    private javax.swing.JLabel lbPayment;
     private javax.swing.JLabel lbTime;
     private javax.swing.JLabel lbUsername;
     private javax.swing.JPanel pbBg;
@@ -378,6 +401,7 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
     private javax.swing.JTextField tfDate;
     private javax.swing.JTextField tfDescription;
     private javax.swing.JTextField tfFees;
+    private javax.swing.JTextField tfID;
     private javax.swing.JTextField tfTime;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables

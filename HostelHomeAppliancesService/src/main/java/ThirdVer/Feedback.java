@@ -1,6 +1,7 @@
 package ThirdVer;
 
 public class Feedback {
+    private int id;
     private User technician;
     private User customer;
     private String date;
@@ -8,13 +9,18 @@ public class Feedback {
     private String description;
     private String feedback;
 
-    public Feedback(User technician, User customer, String date, String time, String description, String feedback) {
+    public Feedback(int id, User technician, User customer, String date, String time, String description, String feedback) {
+        this.id = id;
         this.technician = technician;
         this.customer = customer;
         this.date = date;
         this.time = time;
         this.description = description;
         this.feedback = feedback;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public User getTechnician() {
@@ -39,6 +45,10 @@ public class Feedback {
 
     public String getFeedback() {
         return feedback;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTechnician(User technician) {

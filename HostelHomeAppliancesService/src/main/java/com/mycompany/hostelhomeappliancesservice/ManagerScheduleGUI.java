@@ -4,7 +4,14 @@
  */
 package com.mycompany.hostelhomeappliancesservice;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import ThirdVer.DataIO;
+import ThirdVer.MainRun;
 
 /**
  *
@@ -145,40 +152,27 @@ public class ManagerScheduleGUI extends javax.swing.JFrame {
         lbUpcomingS.setForeground(new java.awt.Color(214, 219, 223));
         lbUpcomingS.setText("Upcoming Schedule");
 
-        tbSchedule.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"a", null, null, ""},
-                {"b", null, null, null},
-                {"c", null, null, null},
-                {"d", null, null, null},
-                {"c", null, null, null},
-                {"d", null, null, null},
-                {"e", null, null, null},
-                {"f", null, null, null},
-                {"g", null, null, null},
-                {"g", null, null, null},
-                {"h", null, null, null},
-                {"i", null, null, null},
-                {"j", null, null, null},
-                {"k", null, null, null},
-                {"l", null, null, null},
-                {"m", null, null, null},
-                {"n", null, null, null},
-                {"o", null, null, null},
-                {"p", null, null, null}
-            },
-            new String [] {
-                "Username", "Date", "Time", "Description"
+        String[] columnNames = {"Technician", "Date", "Time", "Description"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        };
+        tbSchedule.setModel(model);
+        Collections.sort(DataIO.allAppointments, new Comparator<Appointment>() {
+            @Override
+            public int compare(Appointment a1, Appointment a2) {
+                int dateCompare = a1.getDate().compareTo(a2.getDate());
+                if (dateCompare == 0) {
+                    return a1.getTime().compareTo(a2.getTime());
+                }
+                return dateCompare;
             }
         });
+        for (Appointment appointment : DataIO.allAppointments) {
+            model.addRow(new Object[]{appointment.getTechnician().getName(), appointment.getDate(), appointment.getTime(), appointment.getDescription()});
+        }
+
         jScrollPane1.setViewportView(tbSchedule);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -254,6 +248,8 @@ public class ManagerScheduleGUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.manager = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed

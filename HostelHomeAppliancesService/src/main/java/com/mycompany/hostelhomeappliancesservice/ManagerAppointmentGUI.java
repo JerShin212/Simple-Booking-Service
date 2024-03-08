@@ -4,6 +4,11 @@
  */
 package com.mycompany.hostelhomeappliancesservice;
 
+import javax.swing.JOptionPane;
+
+import ThirdVer.DataIO;
+import ThirdVer.MainRun;
+
 /**
  *
  * @author User
@@ -357,6 +362,8 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.manager = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
@@ -368,7 +375,34 @@ public class ManagerAppointmentGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSettingActionPerformed
 
     private void btnBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBookActionPerformed
-        // TODO add your handling code here:
+        try {
+            String username = tfUsername.getText();
+            String date = tfDate.getText();
+            String time = tfTime.getText();
+            if (DataIO.checkUser(username)==null) {
+                throw new Exception("Invalid username");
+            }
+            if (!DataIO.checkDate(date)) {
+                throw new Exception("Invalid date");
+            }
+            if (!DataIO.checkTime(time)) {
+                throw new Exception("Invalid time");
+            }
+            if (!DataIO.checkAppointment(date, time, cbTechnician.getSelectedItem().toString(), username)) {
+                throw new Exception("Appointment already exists");
+            }
+            String description = tfDescription.getText();
+            String technician = cbTechnician.getSelectedItem().toString();
+            MainRun.manager.createAppointment(username, technician, date, time, description);
+            JOptionPane.showMessageDialog(this, "Appointment created");
+            tfUsername.setText("");
+            tfDate.setText("");
+            tfTime.setText("");
+            tfDescription.setText("");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnBookActionPerformed
 
     private void cbTechnicianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTechnicianActionPerformed

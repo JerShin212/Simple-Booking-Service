@@ -4,7 +4,14 @@
  */
 package com.mycompany.hostelhomeappliancesservice;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import ThirdVer.DataIO;
+import ThirdVer.MainRun;
 
 /**
  *
@@ -136,31 +143,31 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
             }
         });
 
-        tbSchedule.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Username", "Date", "Time", "Description"
+        String[] columnNames = {"Date", "Time", "Customer", "Description"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        };
+        tbSchedule.setModel(model);
+        
+        Collections.sort(DataIO.allAppointments, new Comparator<Appointment>() {
+            @Override
+            public int compare(Appointment a1, Appointment a2) {
+                int dateCompare = a1.getDate().compareTo(a2.getDate());
+                if (dateCompare == 0) { // Dates are equal, compare times
+                    return a1.getTime().compareTo(a2.getTime());
+                }
+                return dateCompare;
             }
         });
+
+        for (Appointment appointment : DataIO.allAppointments) {
+            if (appointment.getTechnician().getUsername().equals(MainRun.currentUser.getUsername()) && appointment.getStatus().equals("pending")) {
+                model.addRow(new Object[]{appointment.getDate(), appointment.getTime(), appointment.getCustomer().getUsername(), appointment.getDescription()});
+            }
+        }
         jScrollPane1.setViewportView(tbSchedule);
 
         javax.swing.GroupLayout pnContentBgLayout = new javax.swing.GroupLayout(pnContentBg);
@@ -254,6 +261,8 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.technician = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed

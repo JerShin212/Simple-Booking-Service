@@ -31,9 +31,10 @@ public class DataIO {
             while (appointmentScanner.hasNextLine()) {
                 String data = appointmentScanner.nextLine();
                 String[] appointment = data.split(",");
-                User customer = checkUser(appointment[0]);
-                User technician = checkUser(appointment[4]);
-                Appointment newAppointment = new Appointment(customer, appointment[1], appointment[2], appointment[3], technician, appointment[5]);
+                int id = Integer.parseInt(appointment[0]);
+                User customer = checkUser(appointment[1]);
+                User technician = checkUser(appointment[6]);
+                Appointment newAppointment = new Appointment(id, customer, appointment[2], appointment[3], appointment[4], appointment[5], technician, appointment[7]);
                 allAppointments.add(newAppointment);
             }
             appointmentScanner.close();
@@ -44,9 +45,10 @@ public class DataIO {
             while (paymentScanner.hasNextLine()) {
                 String data = paymentScanner.nextLine();
                 String[] payment = data.split(",");
-                User customer = checkUser(payment[0]);
-                User technician = checkUser(payment[4]);
-                Payment newPayment = new Payment(customer, payment[1], payment[2], payment[3], technician, payment[5], payment[6]);
+                int id = Integer.parseInt(payment[0]);
+                User customer = checkUser(payment[1]);
+                User technician = checkUser(payment[5]);
+                Payment newPayment = new Payment(id, customer, payment[2], payment[3], payment[4], technician, payment[6], payment[7]);
                 allPayments.add(newPayment);
             }
             paymentScanner.close();
@@ -57,9 +59,10 @@ public class DataIO {
             while (feedbackScanner.hasNextLine()) {
                 String data = feedbackScanner.nextLine();
                 String[] feedback = data.split(",");
-                User customer = checkUser(feedback[1]);
-                User technician = checkUser(feedback[0]);
-                Feedback newFeedback = new Feedback(technician, customer, feedback[1], feedback[2], feedback[3], feedback[5]);
+                int id = Integer.parseInt(feedback[0]);
+                User customer = checkUser(feedback[2]);
+                User technician = checkUser(feedback[1]);
+                Feedback newFeedback = new Feedback(id, technician, customer, feedback[1], feedback[2], feedback[3], feedback[5]);
                 allFeedbacks.add(newFeedback);
             }
             feedbackScanner.close();
@@ -84,7 +87,7 @@ public class DataIO {
             checkFile(appointmentFile);
             FileWriter appointmentWriter = new FileWriter("appointments.txt");
             for (Appointment appointment : allAppointments) {
-                appointmentWriter.write(appointment.getCustomer().getUsername() + "," + appointment.getDate() + "," + appointment.getTime() + "," + appointment.getDescription() + "," + appointment.getTechnician().getUsername() + "," + appointment.getStatus() + "\n");
+                appointmentWriter.write(appointment.getId() + "," + appointment.getCustomer().getUsername() + "," + appointment.getDate() + "," + appointment.getTime() + "," + appointment.getLocation() + "," + appointment.getDescription() + "," + appointment.getTechnician().getUsername() + "," + appointment.getStatus() + "\n");
             }
             appointmentWriter.close();
 
@@ -92,7 +95,7 @@ public class DataIO {
             checkFile(paymentFile);
             FileWriter paymentWriter = new FileWriter("payments.txt");
             for (Payment payment : allPayments) {
-                paymentWriter.write(payment.getCustomer().getUsername() + "," + payment.getDate() + "," + payment.getTime() + "," + payment.getDescription() + "," + payment.getTechnician().getUsername() + "," + payment.getFees() + "," + payment.getStatus() + "\n");
+                paymentWriter.write(payment.getId() + "," + payment.getCustomer().getUsername() + "," + payment.getDate() + "," + payment.getTime() + "," + payment.getDescription() + "," + payment.getTechnician().getUsername() + "," + payment.getFees() + "," + payment.getStatus() + "\n");
             }
             paymentWriter.close();
 
@@ -183,6 +186,15 @@ public class DataIO {
             }
         }
         return closestAppointment;
+    }
+
+    public static Appointment checkId(int id) {
+        for (Appointment appointment : allAppointments) {
+            if (appointment.getId() == id) {
+                return appointment;
+            }
+        }
+        return null;
     }
 
 }

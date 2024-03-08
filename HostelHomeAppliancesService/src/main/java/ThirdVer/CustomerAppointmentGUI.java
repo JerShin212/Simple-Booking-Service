@@ -231,7 +231,7 @@ public class CustomerAppointmentGUI extends javax.swing.JFrame {
         lbUpcoming.setForeground(new java.awt.Color(109, 123, 141));
         lbUpcoming.setText("Upcoming");
 
-        String[] columnNames = {"Date", "Time", "Technician", "Description"};
+        String[] columnNames = {"ID", "Date", "Time", "Technician", "Description"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0){
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -242,7 +242,7 @@ public class CustomerAppointmentGUI extends javax.swing.JFrame {
         for (Appointment appointment : DataIO.allAppointments) {
             if (appointment.getCustomer().getUsername().equals(MainRun.currentUser.getUsername())) {
                 if (appointment.getStatus().equals("paid") || appointment.getStatus().equals("completed")) {
-                    model.addRow(new Object[]{appointment.getDate(), appointment.getTime(), appointment.getTechnician().getUsername(), appointment.getDescription()});
+                    model.addRow(new Object[]{appointment.getId(), appointment.getDate(), appointment.getTime(), appointment.getTechnician().getUsername(), appointment.getDescription()});
                 }
             }
         }

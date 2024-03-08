@@ -234,7 +234,7 @@ public class CustomerDashboardGUI extends javax.swing.JFrame {
         lbUpcoming.setForeground(new java.awt.Color(109, 123, 141));
         lbUpcoming.setText("Upcoming Apointment");
 
-        String[] columnNames = {"Date", "Time", "Technician", "Description"};
+        String[] columnNames = {"ID", "Date", "Time", "Technician", "Description"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0) {
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -244,7 +244,7 @@ public class CustomerDashboardGUI extends javax.swing.JFrame {
 
         for (Appointment appointment : DataIO.allAppointments) {
             if (appointment.getCustomer().getUsername().equals(MainRun.currentUser.getUsername()) && appointment.getStatus().equals("paid")) {
-                model.addRow(new Object[]{appointment.getDate(), appointment.getTime(), appointment.getTechnician().getUsername(), appointment.getDescription()});
+                model.addRow(new Object[]{appointment.getId(), appointment.getDate(), appointment.getTime(), appointment.getTechnician().getUsername(), appointment.getDescription()});
             }
         }
         jScrollPane2.setViewportView(tbFeedback);

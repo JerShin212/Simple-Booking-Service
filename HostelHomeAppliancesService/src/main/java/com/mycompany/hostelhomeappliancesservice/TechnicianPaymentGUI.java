@@ -4,6 +4,11 @@
  */
 package com.mycompany.hostelhomeappliancesservice;
 
+import javax.swing.JOptionPane;
+
+import ThirdVer.DataIO;
+import ThirdVer.MainRun;
+
 /**
  *
  * @author User
@@ -152,9 +157,9 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
 
         lbUsername.setText("Username: ");
 
-        lbDate.setText("Date: ");
+        lbDate.setText("Date(yyyy-mm-dd): ");
 
-        lbTime.setText("Time: ");
+        lbTime.setText("Time(24H): ");
 
         lbDescription.setText("Description:");
 
@@ -368,12 +373,38 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.technician = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
-        // TODO add your handling code here:
+        try {
+            String username = tfUsername.getText();
+            String date = tfDate.getText();
+            String time = tfTime.getText();
+            String description = tfDescription.getText();
+            String fees = tfFees.getText();
+            User customer = DataIO.checkUser(username);
+            Appointment appointment = DataIO.Exist(date, time, description, username);
+            if (appointment != null) {
+                appointment.setStatus("paid");
+                Payment payment = new Payment(appointment.getId(), customer, date, time, description, appointment.getTechnician(), fees, "paid");
+                DataIO.allPayments.add(payment);
+                DataIO.write();
+                JOptionPane.showMessageDialog(null, "Payment successful");
+                tfUsername.setText("");
+                tfDate.setText("");
+                tfTime.setText("");
+                tfDescription.setText("");
+                tfFees.setText("");
+            } else {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Invalid input");
+        }
     }//GEN-LAST:event_btnPayActionPerformed
 
     private void tfDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDescriptionActionPerformed

@@ -4,6 +4,12 @@
  */
 package com.mycompany.hostelhomeappliancesservice;
 
+import javax.swing.JOptionPane;
+
+import ThirdVer.DataIO;
+import ThirdVer.Feedback;
+import ThirdVer.MainRun;
+
 /**
  *
  * @author User
@@ -351,12 +357,39 @@ public class FeedbackFormGUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.customer = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
-        // TODO add your handling code here:
+        try {
+            String date = tfDate.getText();
+            String time = tfTime.getText();
+            String description = tfDescription.getText();
+            String technician = tfTime1.getText();
+            String feedback = tfFeedback.getText();
+            User customer = MainRun.currentUser;
+            User technician1 = DataIO.checkUser(technician);
+            Appointment appointment = DataIO.Exist(date, time, description, customer.getUsername());
+            if (appointment == null) {
+                throw new Exception("Appointment does not exist");
+            }
+            Feedback feedback1 = new Feedback(appointment.getId(), technician1, customer, appointment.getDate(), appointment.getTime(), appointment.getDescription(), feedback);
+            DataIO.allFeedbacks.add(feedback1);
+            appointment.setStatus("completed");
+            DataIO.write();
+            JOptionPane.showMessageDialog(null, "Feedback sent successfully");
+            tfDate.setText("");
+            tfTime.setText("");
+            tfDescription.setText("");
+            tfTime1.setText("");
+            tfFeedback.setText("");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_btnSendActionPerformed
 
     private void tfFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFeedbackActionPerformed

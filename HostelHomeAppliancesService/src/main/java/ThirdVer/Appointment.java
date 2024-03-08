@@ -1,20 +1,28 @@
 package ThirdVer;
 
 public class Appointment {
+    private int id;
     private User customer;
     private String date;
     private String time;
+    private String location;
     private String description;
     private User technician;
     private String status;
 
-    public Appointment(User customer, String date, String time, String description, User technician, String status) {
+    public Appointment(int id, User customer, String date, String time, String location, String description, User technician, String status) {
+        this.id = id;
         this.customer = customer;
         this.date = date;
         this.time = time;
+        this.location = location;
         this.description = description;
         this.technician = technician;
         this.status = status;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public User getCustomer() {
@@ -29,6 +37,10 @@ public class Appointment {
         return time;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -41,6 +53,10 @@ public class Appointment {
         return status;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
@@ -51,6 +67,10 @@ public class Appointment {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public void setDescription(String description) {

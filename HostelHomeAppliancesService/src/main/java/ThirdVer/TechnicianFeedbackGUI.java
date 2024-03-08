@@ -1,9 +1,15 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package ThirdVer;
 
 import javax.swing.table.DefaultTableModel;
 
+
 public class TechnicianFeedbackGUI extends javax.swing.JFrame {
 
+    
     public TechnicianFeedbackGUI() {
         initComponents();
     }
@@ -13,15 +19,14 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
         pnBg = new javax.swing.JPanel();
         pnSwitch = new javax.swing.JPanel();
         btnHome = new javax.swing.JButton();
-        btnAppointment = new javax.swing.JButton();
         btnSetting = new javax.swing.JButton();
         btnPayment = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
         btnSchedule = new javax.swing.JButton();
-        lbDashboard = new javax.swing.JLabel();
+        lbFeedback = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         pbContentBg = new javax.swing.JPanel();
-        spTable = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         tbFeedback = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -35,16 +40,6 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
-            }
-        });
-
-        btnAppointment.setBackground(new java.awt.Color(102, 102, 102));
-        btnAppointment.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        btnAppointment.setForeground(new java.awt.Color(255, 255, 255));
-        btnAppointment.setText("Appointment");
-        btnAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAppointmentActionPerformed(evt);
             }
         });
 
@@ -95,7 +90,6 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnSwitchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                    .addComponent(btnAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                     .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -108,8 +102,6 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,12 +109,12 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
                 .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
-        lbDashboard.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
-        lbDashboard.setForeground(new java.awt.Color(214, 219, 223));
-        lbDashboard.setText("Feedback");
+        lbFeedback.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
+        lbFeedback.setForeground(new java.awt.Color(214, 219, 223));
+        lbFeedback.setText("Feedback");
 
         btnLogout.setBackground(new java.awt.Color(102, 102, 102));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/Logout.png"))); // NOI18N
@@ -146,7 +138,7 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
                 model.addRow(new Object[]{feedback.getDescription(), feedback.getDate(), feedback.getTime(), feedback.getFeedback()});
             }
         }
-        spTable.setViewportView(tbFeedback);
+        jScrollPane1.setViewportView(tbFeedback);
 
         javax.swing.GroupLayout pbContentBgLayout = new javax.swing.GroupLayout(pbContentBg);
         pbContentBg.setLayout(pbContentBgLayout);
@@ -154,14 +146,14 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
             pbContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pbContentBgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pbContentBgLayout.setVerticalGroup(
             pbContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pbContentBgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -178,7 +170,7 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
                         .addComponent(pbContentBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnBgLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(lbDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
                         .addComponent(btnLogout)))
                 .addGap(19, 19, 19))
@@ -188,7 +180,7 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
             .addGroup(pnBgLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDashboard)
+                    .addComponent(lbFeedback)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,12 +207,6 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
         c.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnHomeActionPerformed
-
-    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
-        TechnicianAppointmentGUI a = new TechnicianAppointmentGUI();
-        a.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAppointmentActionPerformed
 
     private void btnSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingActionPerformed
         Setting y = new Setting();
@@ -254,17 +240,16 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnFeedback;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPayment;
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnSetting;
-    private javax.swing.JPanel pnBg;
-    private javax.swing.JScrollPane spTable;
-    private javax.swing.JLabel lbDashboard;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbFeedback;
     private javax.swing.JPanel pbContentBg;
+    private javax.swing.JPanel pnBg;
     private javax.swing.JPanel pnSwitch;
     private javax.swing.JTable tbFeedback;
     // End of variables declaration//GEN-END:variables

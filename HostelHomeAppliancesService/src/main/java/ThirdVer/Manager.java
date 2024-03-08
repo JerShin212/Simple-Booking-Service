@@ -11,10 +11,11 @@ public class Manager extends User{
         DataIO.write();
     }
 
-    public Appointment createAppointment(String userCustomer, String userTechnician, String date, String time, String description) {
+    public Appointment createAppointment(String userCustomer, String userTechnician, String date, String time, String location, String description) {
         User customer = DataIO.checkUser(userCustomer);
         User technician = DataIO.checkUser(userTechnician);
-        Appointment appointment = new Appointment(customer, date, time, description, technician, "pending");
+        int id = DataIO.allAppointments.size() + 1;
+        Appointment appointment = new Appointment(id, customer, date, time, location, description, technician, "pending");
         DataIO.allAppointments.add(appointment);
         DataIO.write();
         return appointment;

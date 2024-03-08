@@ -5,6 +5,11 @@
 package com.mycompany.hostelhomeappliancesservice;
 
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import ThirdVer.DataIO;
+import ThirdVer.Feedback;
+import ThirdVer.MainRun;
 
 /**
  *
@@ -138,31 +143,18 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
 
         pbContentBg.setBackground(new java.awt.Color(204, 204, 204));
 
-        tbFeedback.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Username", "Date", "Time", "Feedback"
+        String[] columnNames = {"Description", "Date", "Time", "Feedback"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
             }
-        ));
+        };
+        tbFeedback.setModel(model);
+        for (Feedback feedback : DataIO.allFeedbacks) {
+            if (feedback.getTechnician().getUsername().equals(MainRun.currentUser.getUsername())) {
+                model.addRow(new Object[]{feedback.getDescription(), feedback.getDate(), feedback.getTime(), feedback.getFeedback()});
+            }
+        }
         jScrollPane1.setViewportView(tbFeedback);
 
         javax.swing.GroupLayout pbContentBgLayout = new javax.swing.GroupLayout(pbContentBg);
@@ -257,6 +249,8 @@ public class TechnicianFeedbackGUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.technician = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed

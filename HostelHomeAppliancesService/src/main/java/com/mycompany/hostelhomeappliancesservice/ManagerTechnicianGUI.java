@@ -5,6 +5,10 @@
 package com.mycompany.hostelhomeappliancesservice;
 
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import ThirdVer.DataIO;
+import ThirdVer.MainRun;
 
 /**
  *
@@ -153,23 +157,20 @@ public class ManagerTechnicianGUI extends javax.swing.JFrame {
         lbTechnician.setForeground(new java.awt.Color(214, 219, 223));
         lbTechnician.setText("Technician");
 
-        tbTechnician.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Username", "Name", "Specialization"
+        String[] columnNames = {"Technician", "Name"};
+        DefaultTableModel model = new DefaultTableModel(columnNames, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
             }
-        ));
+        };
+
+        tbTechnician.setModel(model);
+
+        for (User user : DataIO.allUsers) {
+            if (user.getRole().equals("technician")) {
+                model.addRow(new Object[]{user.getUsername(), user.getName()});
+            }
+        }
         jScrollPane1.setViewportView(tbTechnician);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -235,6 +236,8 @@ public class ManagerTechnicianGUI extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         Login x = new Login();
+        MainRun.currentUser = null;
+        MainRun.manager = null;
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
