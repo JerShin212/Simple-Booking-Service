@@ -103,7 +103,7 @@ public class DataIO {
             checkFile(feedbackFile);
             FileWriter feedbackWriter = new FileWriter("feedbacks.txt");
             for (Feedback feedback : allFeedbacks) {
-                feedbackWriter.write(feedback.getTechnician().getUsername() + "," + feedback.getCustomer().getUsername() + "," + feedback.getDate() + "," + feedback.getTime() + "," + feedback.getDescription() + "," + feedback.getFeedback() + "\n");
+                feedbackWriter.write(feedback.getId() + "," + feedback.getTechnician().getUsername() + "," + feedback.getCustomer().getUsername() + "," + feedback.getDate() + "," + feedback.getTime() + "," + feedback.getDescription() + "," + feedback.getFeedback() + "\n");
             }
             feedbackWriter.close();
         } catch (IOException e) {
