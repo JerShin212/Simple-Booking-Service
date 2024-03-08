@@ -26,7 +26,7 @@ public class ManagerFeedbackGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel10 = new javax.swing.JPanel();
+        pnBg = new javax.swing.JPanel();
         btnLogout = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnHome = new javax.swing.JButton();
@@ -35,14 +35,14 @@ public class ManagerFeedbackGUI extends javax.swing.JFrame {
         btnSchedule = new javax.swing.JButton();
         btnTechnician = new javax.swing.JButton();
         btnFeedback = new javax.swing.JButton();
-        lbDashboard = new javax.swing.JLabel();
+        lbFeedback = new javax.swing.JLabel();
         pbContentBg = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbFeedback = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel10.setBackground(new java.awt.Color(102, 102, 102));
+        pnBg.setBackground(new java.awt.Color(102, 102, 102));
 
         btnLogout.setBackground(new java.awt.Color(102, 102, 102));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/Logout.png"))); // NOI18N
@@ -147,9 +147,9 @@ public class ManagerFeedbackGUI extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        lbDashboard.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
-        lbDashboard.setForeground(new java.awt.Color(214, 219, 223));
-        lbDashboard.setText("Feedback");
+        lbFeedback.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
+        lbFeedback.setForeground(new java.awt.Color(214, 219, 223));
+        lbFeedback.setText("Feedback");
 
         pbContentBg.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -186,7 +186,7 @@ public class ManagerFeedbackGUI extends javax.swing.JFrame {
             pbContentBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pbContentBgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pbContentBgLayout.setVerticalGroup(
@@ -197,33 +197,32 @@ public class ManagerFeedbackGUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnBgLayout = new javax.swing.GroupLayout(pnBg);
+        pnBg.setLayout(pnBgLayout);
+        pnBgLayout.setHorizontalGroup(
+            pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnBgLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pbContentBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(19, 19, 19))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(lbDashboard)
-                        .addGap(275, 275, 275)
-                        .addComponent(btnLogout)
-                        .addGap(15, 15, 15))))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pbContentBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnBgLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(lbFeedback)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout)
+                .addGap(15, 15, 15))
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+        pnBgLayout.setVerticalGroup(
+            pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnBgLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDashboard)
+                .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbFeedback)
                     .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnBgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pbContentBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -232,11 +231,11 @@ public class ManagerFeedbackGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnBg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -324,10 +323,10 @@ public class ManagerFeedbackGUI extends javax.swing.JFrame {
     private javax.swing.JButton btnSetting;
     private javax.swing.JButton btnTechnician;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbDashboard;
+    private javax.swing.JLabel lbFeedback;
     private javax.swing.JPanel pbContentBg;
+    private javax.swing.JPanel pnBg;
     private javax.swing.JTable tbFeedback;
     // End of variables declaration//GEN-END:variables
 }

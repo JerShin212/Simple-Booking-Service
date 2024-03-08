@@ -119,9 +119,9 @@ public class ManagerScheduleGUI extends javax.swing.JFrame {
                 .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTechnician, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSetting, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         lbUpcomingS.setFont(new java.awt.Font("Bell MT", 0, 36)); // NOI18N
@@ -162,13 +162,6 @@ public class ManagerScheduleGUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-
-        tbSchedule.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        tbSchedule.getColumnModel().getColumn(0).setPreferredWidth(75);
-        tbSchedule.getColumnModel().getColumn(1).setPreferredWidth(55);
-        tbSchedule.getColumnModel().getColumn(2).setPreferredWidth(55);
-        tbSchedule.getColumnModel().getColumn(3).setPreferredWidth(118);
-
         jScrollPane1.setViewportView(tbSchedule);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
