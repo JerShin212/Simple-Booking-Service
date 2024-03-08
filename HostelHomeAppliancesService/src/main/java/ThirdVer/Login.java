@@ -25,8 +25,10 @@ public class Login extends javax.swing.JFrame{
 
         pnBg.setBackground(new java.awt.Color(102, 102, 102));
 
-        lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/Untitled.png"))); // NOI18N
-        lbLogo.setText("lbLogo");
+        lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/hostelhomeappliancesservice/FixFlex.png"))); // NOI18N
+        lbLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbLogo.setVerticalAlignment(javax.swing.SwingConstants.CENTER);
+        
 
         pnContent.setBackground(new java.awt.Color(204, 204, 204));
 
