@@ -62,7 +62,7 @@ public class DataIO {
                 int id = Integer.parseInt(feedback[0]);
                 User customer = checkUser(feedback[2]);
                 User technician = checkUser(feedback[1]);
-                Feedback newFeedback = new Feedback(id, technician, customer, feedback[1], feedback[2], feedback[3], feedback[5]);
+                Feedback newFeedback = new Feedback(id, technician, customer, feedback[3], feedback[4], feedback[5], feedback[6]);
                 allFeedbacks.add(newFeedback);
             }
             feedbackScanner.close();
