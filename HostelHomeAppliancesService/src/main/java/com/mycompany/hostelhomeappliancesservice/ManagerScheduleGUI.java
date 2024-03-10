@@ -155,7 +155,9 @@ public class ManagerScheduleGUI extends javax.swing.JFrame {
             }
         });
         for (Appointment appointment : DataIO.allAppointments) {
-            model.addRow(new Object[]{appointment.getTechnician().getName(), appointment.getDate(), appointment.getTime(), appointment.getLocation(), appointment.getDescription()});
+            if (appointment.getStatus().equals("pending")) {
+                model.addRow(new Object[]{appointment.getTechnician().getName(), appointment.getDate(), appointment.getTime(), appointment.getLocation(), appointment.getDescription()});
+            }
         }
 
         jScrollPane1.setViewportView(tbSchedule);
