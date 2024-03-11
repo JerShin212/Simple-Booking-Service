@@ -136,7 +136,7 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
 
         lbDate.setText("Date(yyyy-mm-dd): ");
 
-        lbTime.setText("Time(24H): ");
+        lbTime.setText("Time(24H):");
 
         lbDescription.setText("Description:");
 
@@ -179,7 +179,7 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                                             .addGroup(pnContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(lbUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(lbDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(lbTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                         .addGap(4, 4, 4)))
                                 .addGap(18, 18, 18))
                             .addGroup(pnContentLayout.createSequentialGroup()
