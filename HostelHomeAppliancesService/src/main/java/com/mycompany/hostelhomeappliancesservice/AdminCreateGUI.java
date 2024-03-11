@@ -285,6 +285,12 @@ public class AdminCreateGUI extends javax.swing.JFrame {
             String name = tfName.getText();
             String password = tfPassword.getText();
             String role = cbRole.getSelectedItem().toString();
+            if (username.equals("") || name.equals("") || password.equals("")) {
+                throw new Exception("Please fill in all fields");
+            }
+            if (DataIO.allUsers.stream().anyMatch(u -> u.getUsername().equals(username))) {
+                throw new Exception("Username already exists");
+            }
             switch (role) {
                 case "Admin":
                     NewMain.admin.createAdmin(username, name, password);
