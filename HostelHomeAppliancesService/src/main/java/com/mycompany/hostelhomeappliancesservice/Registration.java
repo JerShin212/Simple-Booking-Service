@@ -204,6 +204,9 @@ public class Registration extends javax.swing.JFrame  {
             if (!password.equals(confirmPassword)) {
                 throw new Exception("Password does not match");
             }
+            if (DataIO.allUsers.stream().anyMatch(u -> u.getUsername().equals(username))) {
+                throw new Exception("Username already exists");
+            }
             User user = new User(username, name, password, "customer");
             DataIO.allUsers.add(user);
             DataIO.write();
