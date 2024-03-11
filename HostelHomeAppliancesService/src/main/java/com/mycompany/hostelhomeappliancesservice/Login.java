@@ -190,14 +190,14 @@ public class Login extends javax.swing.JFrame{
                             throw new Exception("No role found for user");
                     }
                 } else {
-                    
+                    throw new Exception("Password is incorrect");
                 }
             } else {
-                
+                throw new Exception("User not found");
             }
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
