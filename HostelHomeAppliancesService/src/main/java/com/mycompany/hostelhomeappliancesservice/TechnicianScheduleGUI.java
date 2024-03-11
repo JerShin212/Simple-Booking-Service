@@ -116,7 +116,7 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
             }
         });
 
-        String[] columnNames = {"Date", "Time", "Customer", "Description"};
+        String[] columnNames = {"Date", "Time", "Location", "Customer", "Description"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -138,7 +138,7 @@ public class TechnicianScheduleGUI extends javax.swing.JFrame {
 
         for (Appointment appointment : DataIO.allAppointments) {
             if (appointment.getTechnician().getUsername().equals(NewMain.currentUser.getUsername()) && appointment.getStatus().equals("pending")) {
-                model.addRow(new Object[]{appointment.getDate(), appointment.getTime(), appointment.getCustomer().getUsername(), appointment.getDescription()});
+                model.addRow(new Object[]{appointment.getDate(), appointment.getTime(), appointment.getLocation(), appointment.getCustomer().getUsername(), appointment.getDescription()});
             }
         }
         jScrollPane1.setViewportView(tbSchedule);
