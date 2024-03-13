@@ -140,10 +140,10 @@ public class CustomerDashboardGUI extends javax.swing.JFrame {
 
         Appointment recentAppointment = DataIO.recentAppointment(NewMain.currentUser.getUsername());
         if (recentAppointment == null) {
-            lbDescriptionMain.setText("No upcoming appointment");
+            lbDescriptionMain.setText("");
             lbTechnicianMain.setText("");
             lbTimeMain.setText("");
-            lbDateMain.setText("");
+            lbDateMain.setText("No upcoming appointment");
         } else {
             lbDescriptionMain.setText(recentAppointment.getDescription());
             lbTechnicianMain.setText(recentAppointment.getTechnician().getUsername());

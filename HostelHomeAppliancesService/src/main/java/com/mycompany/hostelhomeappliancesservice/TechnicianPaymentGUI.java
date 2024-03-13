@@ -339,6 +339,12 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
             String id = tfID.getText();
             int ID = Integer.parseInt(id);
             Appointment appointment = DataIO.checkId(ID);
+            if (customer == null || date.equals("") || time.equals("") || description.equals("") || fees.equals("")) {
+                throw new Exception("Please fill in all fields");
+            }
+            if (appointment.getStatus().equals("paid")) {
+                throw new Exception("Appointment already paid");
+            }
             if (appointment != null) {
                 appointment.setStatus("paid");
                 Payment payment = new Payment(appointment.getId(), customer, date, time, description, appointment.getTechnician(), fees, "paid");
@@ -350,11 +356,9 @@ public class TechnicianPaymentGUI extends javax.swing.JFrame {
                 tfTime.setText("");
                 tfDescription.setText("");
                 tfFees.setText("");
-            } else {
-                throw new Exception();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Invalid input");
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnPayActionPerformed
 
