@@ -328,6 +328,12 @@ public class FeedbackFormGUI extends javax.swing.JFrame {
             if (appointment == null) {
                 throw new Exception("Appointment does not exist");
             }
+            if (feedback.equals("")) {
+                throw new Exception("Feedback cannot be empty");
+            }
+            if (appointment.getStatus().equals("completed")) {
+                throw new Exception("Feedback already sent");
+            }
             Feedback feedback1 = new Feedback(appointment.getId(), technician1, customer, appointment.getDate(), appointment.getTime(), appointment.getDescription(), feedback);
             DataIO.allFeedbacks.add(feedback1);
             appointment.setStatus("completed");
